@@ -31,8 +31,8 @@ ids.each do |id|
 		incident[:time] = date_time.last
 
 		incident[:summary] = doc.css('.inc_summary').first.text.strip
-		incident[:juvenile_victim] = false
-		incident[:juvenile_suspect] = true
+		incident[:any_juvenile_victims] = false
+		incident[:any_juvenile_suspects] = false
 
 		victims = []
 		suspects = []
@@ -52,7 +52,7 @@ ids.each do |id|
 				victim[:about] = p3.text.strip
 
 				if !victim[:age].nil? && victim[:age].to_i < 18
-					incident[:juvenile_victim] = true
+					incident[:any_juvenile_victims] = true
 				end
 
 				victims << victim
@@ -71,7 +71,7 @@ ids.each do |id|
 				suspect[:about] = p3.text.strip # charged with
 
 				if !suspect[:age].nil? && suspect[:age].to_i < 18
-					incident[:juvenile_suspect] = true
+					incident[:any_juvenile_suspects] = true
 				end
 
 				suspects << suspect
