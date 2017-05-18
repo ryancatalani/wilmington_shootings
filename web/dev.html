@@ -8,18 +8,38 @@
 
 	<link rel="stylesheet" href="dev.css">
 
-	
+
 </head>
 <body>
 	
 	
-	Wilmington Shootings
+	<h1>Wilmington Shootings</h1>
+	
+	<h1 id="loading">~ loading ~</h1>
 
-	<div id="map"></div>
+	<p>
+		Blue lines: zip code boundaries; white lines: <a href="https://www.census.gov/geo/reference/gtc/gtc_bg.html" target="_blank">census block group</a> boundaries
+	</p>
+
+	<div class="maps">
+		<div class="map_wrap">
+			<h2>All shootings</h2>
+			<div id="map_all" class="map"></div>
+		</div>
+
+		<div class="map_wrap">
+			<h2>Shootings with juvenile victims</h2>
+			<div id="map_juvenile_victims" class="map"></div>		
+		</div>		
+		
+	</div>
+	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
 	<script src="leaflet_choropleth.js"></script>
+	<script src="L.Map.Sync.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
 	<script src="dev.js"></script>
 
 </body>
