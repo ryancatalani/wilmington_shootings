@@ -3,9 +3,12 @@ $(function(){
 	var map_all = createMap('map_all');
 	var map_juvenile_victims = createMap('map_juvenile_victims');
 	var map_diff = createMap('map_diff');
+	var map_dots = createMap('map_dots');
 
-	var all_maps = [map_all, map_juvenile_victims, map_diff];
-	sync_maps(all_maps);
+	var all_maps = [map_all, map_juvenile_victims, map_diff, map_dots];
+	// sync_maps(all_maps);
+
+	sync_maps([map_all, map_dots]);
 
 	var census_blocks_geojson, incidents_data, tracts_years_diff;
 	$.when(
@@ -52,6 +55,11 @@ $(function(){
 				scale_colors: ['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse()
 			});
 
+			createDotMap({
+				data: incidents_data,
+				map: map_dots
+			});
+
 			addZipCodeBoundsToMaps(all_maps);
 		}
 	});
@@ -70,6 +78,25 @@ $(function(){
 		}).addTo(map);
 
 		return map;
+	}
+
+	function createDotMap(opts) {
+		var data = opts.data,
+			map = opts.map;
+
+		for (var i = 0; i < data.length; i++) {
+			var incident = data[i];
+			var lat = incident.lat;
+			var lng = incident.lng;
+
+			if (typeof lat == 'string' && typeof lng == 'string') {
+				// (as long as they're not null)
+				L.circleMarker([lat, lng], {
+					radius: 5
+				}).addTo(map);
+			}
+		};
+
 	}
 
 	// function createChoroplethMap(census_blocks_geojson, incidents_data, map, scale_colors) {
@@ -244,6 +271,7 @@ $(function(){
 	}
 
 
+	// https://blog.webkid.io/maps-with-leaflet-and-topojson/
 	L.TopoJSON = L.GeoJSON.extend({
 	    addData: function (data) {
 	        var geojson, key;

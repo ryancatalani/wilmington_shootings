@@ -9,6 +9,12 @@
 	height: 500px;
 }
 
+.maps:after {
+	content:" ";
+	display:block;
+	clear:both;
+}
+
 .legend {
 	color: #555;
 	padding: 6px 8px;
