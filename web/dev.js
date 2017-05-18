@@ -59,7 +59,6 @@ $(function(){
 
 		var block_groups = {};
 
-		// change incidents_data to be filterable?
 		for (var i = 0; i < incidents_data.length; i++) {
 	
 			var fips = incidents_data[i].census_block_group_fips;
