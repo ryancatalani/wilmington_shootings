@@ -43,11 +43,12 @@ $(function(){
 				map_juvenile_victims,
 				['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']);
 
-			createChoroplethTractsDiffMap(
-				census_blocks_geojson, 
-				tracts_years_diff, 
-				map_diff,
-				['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse());
+			createChoroplethTractsDiffMap({
+				census_blocks_geojson: census_blocks_geojson,
+				diff_data: tracts_years_diff,
+				map: map_diff,
+				scale_colors: ['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse()
+			});
 
 			addZipCodeBoundsToMap(map_all);
 			addZipCodeBoundsToMap(map_juvenile_victims);
@@ -115,7 +116,10 @@ $(function(){
 		
 	}
 
-	function createChoroplethTractsDiffMap(census_blocks_geojson, diff_data, map, scale_colors) {
+	function createChoroplethTractsDiffMap(opts) {
+		var census_blocks_geojson = opts.census_blocks_geojson;
+		var diff_data = opts.diff_data;
+
 		var selected_geojson = {};
 		selected_geojson.type = "FeatureCollection";
 		selected_geojson.features = [];
@@ -136,9 +140,9 @@ $(function(){
 		// console.log(selected_geojson);
 
 		createChoroplethLayers({
-			map: map,
+			map: opts.map,
 			selected_geojson: selected_geojson,
-			scale_colors: scale_colors
+			scale_colors: opts.scale_colors
 		});
 		
 	}
