@@ -52,9 +52,7 @@ $(function(){
 				scale_colors: ['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse()
 			});
 
-			addZipCodeBoundsToMap(map_all);
-			addZipCodeBoundsToMap(map_juvenile_victims);
-			addZipCodeBoundsToMap(map_diff);
+			addZipCodeBoundsToMaps(all_maps);
 		}
 	});
 
@@ -190,21 +188,47 @@ $(function(){
 		  legend.addTo(opts.map);
 	}
 
-	function addZipCodeBoundsToMap(map) {
+	function addZipCodeBoundsToMap(map, opts={}) {
 		$.getJSON('tl_2010_10_zcta510_topo.json', function(zipcodes_data) {
 
+			var style = opts.style || {
+				color: 'blue',
+				opacity: 0.5,
+				weight: 2,
+				dashArray: "2, 5",
+				fill: false
+			}
+
 			var zipLayer = new L.TopoJSON(zipcodes_data, {
-				style: {
+				style: style
+			});
+			zipLayer.addTo(map);
+
+		});
+	}
+
+	function addZipCodeBoundsToMaps(all_maps, opts={}) {
+		$.getJSON('tl_2010_10_zcta510_topo.json', function(zipcodes_data) {
+
+			for (var i = 0; i < all_maps.length; i++) {
+				var map = all_maps[i];
+
+				var style = opts.style || {
 					color: 'blue',
 					opacity: 0.5,
 					weight: 2,
 					dashArray: "2, 5",
 					fill: false
 				}
-			});
-			zipLayer.addTo(map);
+
+				var zipLayer = new L.TopoJSON(zipcodes_data, {
+					style: style
+				});
+				zipLayer.addTo(map);
+			};
 
 		});
+		
 	}
 
 	function sync_maps(all_maps) {
