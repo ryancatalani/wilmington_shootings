@@ -27,8 +27,7 @@ $(function(){
 				census_blocks_geojson,
 				incidents_data,
 				map_all,
-				['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026'],
-				5);
+				['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']);
 
 			var juvenile_victims_incidents = [];
 			for (var i = 0; i < incidents_data.length; i++) {
@@ -42,15 +41,13 @@ $(function(){
 				census_blocks_geojson,
 				juvenile_victims_incidents,
 				map_juvenile_victims,
-				['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026'],
-				3);
+				['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']);
 
 			createChoroplethTractsDiffMap(
 				census_blocks_geojson, 
 				tracts_years_diff, 
 				map_diff,
-				['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse(),
-				6);
+				['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse());
 
 			addZipCodeBoundsToMap(map_all);
 			addZipCodeBoundsToMap(map_juvenile_victims);
@@ -74,7 +71,7 @@ $(function(){
 		return map;
 	}
 
-	function createChoroplethMap(census_blocks_geojson, incidents_data, map, scale_colors, scale_steps) {
+	function createChoroplethMap(census_blocks_geojson, incidents_data, map, scale_colors) {
 		var selected_geojson = {};
 		selected_geojson.type = "FeatureCollection";
 		selected_geojson.features = [];
@@ -110,11 +107,15 @@ $(function(){
 
 		// console.log(selected_geojson);
 
-		createChoroplethLayers(map, selected_geojson, scale_colors, scale_steps);
+		createChoroplethLayers({
+			map: map,
+			selected_geojson: selected_geojson,
+			scale_colors: scale_colors
+		});
 		
 	}
 
-	function createChoroplethTractsDiffMap(census_blocks_geojson, diff_data, map, scale_colors, scale_steps) {
+	function createChoroplethTractsDiffMap(census_blocks_geojson, diff_data, map, scale_colors) {
 		var selected_geojson = {};
 		selected_geojson.type = "FeatureCollection";
 		selected_geojson.features = [];
@@ -134,15 +135,19 @@ $(function(){
 
 		// console.log(selected_geojson);
 
-		createChoroplethLayers(map, selected_geojson, scale_colors, scale_steps);
+		createChoroplethLayers({
+			map: map,
+			selected_geojson: selected_geojson,
+			scale_colors: scale_colors
+		});
 		
 	}
 
-	function createChoroplethLayers(map, selected_geojson, scale_colors, scale_steps) {
-		var choroplethLayer = L.choropleth(selected_geojson, {
+	function createChoroplethLayers(opts) {
+		var choroplethLayer = L.choropleth(opts.selected_geojson, {
 		  valueProperty: 'incidents',
-		  scale: scale_colors,
-		  steps: scale_steps,
+		  scale: opts.scale_colors,
+		  steps: opts.scale_colors.length,
 		  mode: 'q',
 		  style: {
 		    color: '#fff',
@@ -152,7 +157,7 @@ $(function(){
 		  onEachFeature: function (feature, layer) {
 		    layer.bindPopup('Census block group ' + feature.properties.GEOID + '<br>' + feature.properties.incidents + ' incidents')
 		  }
-		}).addTo(map);
+		}).addTo(opts.map);
 
 		  var legend = L.control({ position: 'bottomright' });
 		  legend.onAdd = function (map) {
@@ -172,7 +177,7 @@ $(function(){
 		    div.innerHTML += '<ul>' + labels.join('') + '</ul>';
 		    return div;
 		  }
-		  legend.addTo(map);
+		  legend.addTo(opts.map);
 	}
 
 	function addZipCodeBoundsToMap(map) {
