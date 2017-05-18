@@ -28,7 +28,7 @@ tracts_years_diff = {}
 
 tracts_years.each do |tract, years_hash|
 	next if tract.nil?
-		
+
 	y_2011_12 = years_hash.select{|k,v| k == 2011 || k == 2012}.map{|k,v| v}.inject(:+) || 0
 	y_2016_17 = years_hash.select{|k,v| k == 2016 || k == 2017}.map{|k,v| v}.inject(:+) || 0
 
@@ -42,3 +42,8 @@ tracts_years.each do |tract, years_hash|
 end
 
 puts tracts_years_diff
+
+File.open('tracts_years_diff.json', 'w') do |f|
+	f.puts JSON.pretty_generate(tracts_years_diff)
+end
+puts "wrote file"
