@@ -4,14 +4,8 @@ $(function(){
 	var map_juvenile_victims = createMap('map_juvenile_victims');
 	var map_diff = createMap('map_diff');
 
-	map_all.sync(map_juvenile_victims);
-	map_all.sync(map_diff);
-
-	map_juvenile_victims.sync(map_all);
-	map_juvenile_victims.sync(map_diff);
-
-	map_diff.sync(map_all);
-	map_diff.sync(map_juvenile_victims);
+	var all_maps = [map_all, map_juvenile_victims, map_diff];
+	sync_maps(all_maps);
 
 	var census_blocks_geojson, incidents_data, tracts_years_diff;
 	$.when(
@@ -100,7 +94,7 @@ $(function(){
 
 		};
 
-		console.log(block_groups);
+		// console.log(block_groups);
 
 		for (var i = 0; i < census_blocks_geojson.features.length; i++) {
 			fips = census_blocks_geojson.features[i].properties.GEOID;
@@ -114,7 +108,7 @@ $(function(){
 			// census_blocks_geojson.features[i].incidents = block_groups[fips] || null;
 		};
 
-		console.log(selected_geojson);
+		// console.log(selected_geojson);
 
 		createChoroplethLayers(map, selected_geojson, scale_colors, scale_steps);
 		
@@ -125,7 +119,7 @@ $(function(){
 		selected_geojson.type = "FeatureCollection";
 		selected_geojson.features = [];
 
-		console.log(diff_data);
+		// console.log(diff_data);
 
 		for (var i = 0; i < census_blocks_geojson.features.length; i++) {
 			tractce = census_blocks_geojson.features[i].properties.TRACTCE;
@@ -138,7 +132,7 @@ $(function(){
 
 		};
 
-		console.log(selected_geojson);
+		// console.log(selected_geojson);
 
 		createChoroplethLayers(map, selected_geojson, scale_colors, scale_steps);
 		
@@ -196,6 +190,18 @@ $(function(){
 			zipLayer.addTo(map);
 
 		});
+	}
+
+	function sync_maps(all_maps) {
+		for (var i = 0; i < all_maps.length; i++) {
+			var current_map = all_maps[i];
+			for (var j = 0; j < all_maps.length; j++) {
+				var sync_map = all_maps[j];
+				if (current_map !== sync_map) {
+					current_map.sync(sync_map);
+				}
+			};
+		};
 	}
 
 
