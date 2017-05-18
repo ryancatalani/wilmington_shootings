@@ -4,11 +4,12 @@ $(function(){
 	var map_juvenile_victims = createMap('map_juvenile_victims');
 	var map_diff = createMap('map_diff');
 	var map_dots = createMap('map_dots');
+	var map_heatmap = createMap('map_heatmap');
 
-	var all_maps = [map_all, map_juvenile_victims, map_diff, map_dots];
+	var all_maps = [map_all, map_juvenile_victims, map_diff, map_dots, map_heatmap];
 	// sync_maps(all_maps);
 
-	sync_maps([map_all, map_dots]);
+	sync_maps([map_heatmap, map_dots]);
 
 	var census_blocks_geojson, incidents_data, tracts_years_diff;
 	$.when(
@@ -60,6 +61,11 @@ $(function(){
 				map: map_dots
 			});
 
+			createHeatmap({
+				data: incidents_data,
+				map: map_heatmap
+			});
+
 			addZipCodeBoundsToMaps(all_maps);
 		}
 	});
@@ -67,17 +73,46 @@ $(function(){
 	function createMap(elementID) {
 		var map = L.map(elementID).setView([39.745833, -75.546667], 13);
 
-		var Hydda_Base = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		}).addTo(map);
-		// https: also suppported.
-		var Hydda_RoadsAndLabels = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		// var Hydda_Base = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
+		// 	maxZoom: 18,
+		// 	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		// }).addTo(map);
+		// // https: also suppported.
+	
+
+		var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+			attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+			maxZoom: 16
 		}).addTo(map);
 
+		// var Hydda_RoadsAndLabels = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
+		// 	maxZoom: 18,
+		// 	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		// }).addTo(map);
+
 		return map;
+	}
+
+	function createHeatmap(opts) {
+		var data = opts.data,
+			map = opts.map;
+
+		var latlngs = [];
+		for (var i = 0; i < data.length; i++) {
+			var incident = data[i];
+			var lat = incident.lat;
+			var lng = incident.lng;
+
+			if (typeof lat == 'string' && typeof lng == 'string') {
+				// (as long as they're not null)
+				latlngs.push([lat, lng]);
+			}
+		};
+
+		L.heatLayer(latlngs, {
+			radius: 15,
+			blur: 15
+		}).addTo(map);
 	}
 
 	function createDotMap(opts) {
@@ -89,11 +124,29 @@ $(function(){
 			var lat = incident.lat;
 			var lng = incident.lng;
 
+			var any_killed = false;
+
+			for (var j = 0; j < incident.victims.length; j++) {
+				var victim = incident.victims[j];
+				if (victim.killed) {
+					any_killed = true;
+				}
+			};
+
+			var style = {
+				radius: 5,
+				color: '#8500E1',
+				weight: 1,
+				fillOpacity: 0.3
+			}
+
+			if (any_killed) {
+				style.color = '#DE7023';
+			}
+
 			if (typeof lat == 'string' && typeof lng == 'string') {
 				// (as long as they're not null)
-				L.circleMarker([lat, lng], {
-					radius: 5
-				}).addTo(map);
+				L.circleMarker([lat, lng], style).addTo(map);
 			}
 		};
 
