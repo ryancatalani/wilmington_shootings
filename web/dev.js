@@ -61,7 +61,8 @@ $(function(){
 				data: incidents_data,
 				map: map_dots,
 				toggle_el: '.toggle li',
-				toggle_class: '.toggle'
+				toggle_class: '.toggle',
+				reset_btn: '#map_dots_reset'
 			});
 
 			// createHeatmap({
@@ -69,7 +70,7 @@ $(function(){
 			// 	map: map_heatmap
 			// });
 
-			addZipCodeBoundsToMaps([map_dots]);
+			// addZipCodeBoundsToMaps([map_dots]);
 		}
 	});
 
@@ -234,9 +235,27 @@ $(function(){
 			}
 		}
 
-		// for (var year in yearLayers) {
-		// 	yearLayers[year].addTo(map);
-		// }
+		if (opts.reset_btn !== undefined) {
+			var $resetBtn = $(opts.reset_btn);
+			$resetBtn.click(function(e){
+				e.preventDefault();
+				map.setView([39.745833, -75.546667], 13);
+				$('#incident_desc').hide();
+				for (var i = 0; i < markers.length; i++) {
+					var marker = markers[i];
+					if (!map.hasLayer(marker)) {
+						marker.addTo(map);
+					} 
+				};
+				if (opts.toggle_el !== undefined && opts.toggle_class !== undefined) {
+					$(opts.toggle_class).each(function(){
+						$(this).find('.selected').removeClass('selected');
+						$(this).children().first().addClass('selected');
+					})
+				}
+				return false;
+			});
+		}
 
 	}
 
