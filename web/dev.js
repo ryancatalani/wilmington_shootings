@@ -10,6 +10,8 @@ $(function(){
 	// sync_maps(all_maps);
 	// sync_maps([map_heatmap, map_dots]);
 
+	var last_incident_marker_clicked;
+
 	var census_blocks_geojson, incidents_data, tracts_years_diff;
 	$.when(
 		$.getJSON('cb_2016_10_bg_500k.json', function(data) {
@@ -180,7 +182,7 @@ $(function(){
 
 				var marker = L.circleMarker([lat, lng], markerOptions);
 				marker.on('click', function(){
-					fillIncidentDesc(this.options.incidentID);
+					highlightIncident(this);
 				});
 
 				if (yearLayers[incident.year] !== undefined) {
@@ -198,8 +200,10 @@ $(function(){
 
 	}
 
-	function fillIncidentDesc(incidentID) {
+	function highlightIncident(marker) {
 		$('#incident_desc').show();
+
+		var incidentID = marker.options.incidentID;
 
 		var incident = incidents_data.filter(function(incident_data){
 			return incident_data.id === incidentID;
@@ -254,6 +258,11 @@ $(function(){
 			$('#desc_suspects').html('<li>No suspects identified</li>');
 		}
 
+		if (last_incident_marker_clicked !== undefined) {
+			last_incident_marker_clicked.setRadius(4);
+		}
+		marker.setRadius(20);
+		last_incident_marker_clicked = marker;
 
 	}
 

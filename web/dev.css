@@ -65,6 +65,8 @@ body {
 	float: right;
 }
 
+
+
 #year_toggle li {
 	display: inline-block;
 	border: 1px solid #999;
@@ -79,6 +81,9 @@ body {
 #year_toggle li.selected {
 	background: #ddd;
 }
+
+
+
 
 #incident_desc_outer {
 	height: 500px;
@@ -98,4 +103,26 @@ body {
 
 #incident_desc li {
 	margin-bottom: 5px;
+}
+
+
+
+
+#incidents_legend li {
+	display: inline-block;
+	color: #fff;
+	padding: 1px 5px;
+	border-radius: 5px;
+}
+
+#incidents_legend li#juvenile_killed {
+	background: #f00;
+}
+
+#incidents_legend li#juvenile_wounded {
+	background: #00f;
+}
+
+#incidents_legend li#other {
+	background: #999;
 }
