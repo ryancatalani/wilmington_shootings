@@ -60,7 +60,8 @@ $(function(){
 			createDotMap({
 				data: incidents_data,
 				map: map_dots,
-				toggle_el: '#year_toggle li'
+				toggle_el: '.toggle li',
+				toggle_class: '.toggle'
 			});
 
 			// createHeatmap({
@@ -123,38 +124,74 @@ $(function(){
 		var data = opts.data,
 			map = opts.map;
 
-		if (opts.toggle_el !== undefined) {
-			var toggle_el = opts.toggle_el;
+		var markers = [];
+
+		if (opts.toggle_el !== undefined && opts.toggle_class !== undefined) {
+			var toggle_el = opts.toggle_el,
+				toggle_class = opts.toggle_class;
+
 			$(toggle_el).click(function(){
 				if ( !$(this).hasClass('selected') ) {
-					var chosenYear = $(this).data('year');
-					
-					if (chosenYear === "all") {
-						for (var year in yearLayers) {
-							yearLayers[year].addTo(map);
-						}
-					} else {
-						for (var year in yearLayers) {
-							// console.log(chosenYear, key)
-							if (chosenYear != year) {
-								console.log(yearLayers[year]);
-								map.removeLayer(yearLayers[year]);
-							} else {
-								map.addLayer(yearLayers[year]);
-							}
-						}
-					}
 
 					$(this).siblings('.selected').removeClass('selected');
 					$(this).addClass('selected');
+
+					var filterOptions = {};
+					$(toggle_class).each(function() {
+						var toToggle = $(this).data('toggle');
+						var toggleOption = $(this).find('.selected').first().data('toggle-option');
+						if (typeof toggleOption === 'string' && toggleOption.length === 0) {
+							// blank, skip
+						} else {
+							filterOptions[toToggle] = toggleOption;
+						}
+					});
+					console.log(filterOptions);
+
+					var filteredIDs = [];
+
+					incidents_data.filter(function(incident) {
+						var results = [];
+						for (var option in filterOptions) {
+							var value = filterOptions[option];
+							if (typeof value === 'string' && value.length === 0) {
+								// skip
+							} else {
+								var result = incident[option] == value;
+								results.push(result);
+							}
+						}
+						if (results.every(function(el) { return el })) {
+							filteredIDs.push(incident.id);
+						}
+
+					});
+
+					console.log(filteredIDs);
+
+					for (var i = 0; i < markers.length; i++) {
+						var marker = markers[i];
+						var inFilteredIDs = $.inArray(marker.options.incidentID, filteredIDs);
+						if (inFilteredIDs > 0) {
+							// should show
+							if (!map.hasLayer(marker)) {
+								marker.addTo(map);
+							}
+						} else {
+							// should hide
+							if (map.hasLayer(marker)) {
+								marker.removeFrom(map);
+							}
+						}
+					};
+					
 
 				}
 
 			});
 		}
 
-		// var markers = [];
-		var yearLayers = {};
+		// var yearLayers = {};
 
 		for (var i = 0; i < data.length; i++) {
 			var incident = data[i];
@@ -185,18 +222,21 @@ $(function(){
 					highlightIncident(this);
 				});
 
-				if (yearLayers[incident.year] !== undefined) {
-					yearLayers[incident.year].addLayer(marker);
-				} else {
-					yearLayers[incident.year] = L.layerGroup(marker);
-				}
+				marker.addTo(map);
+				markers.push(marker);
+
+				// if (yearLayers[incident.year] !== undefined) {
+				// 	yearLayers[incident.year].addLayer(marker);
+				// } else {
+				// 	yearLayers[incident.year] = L.layerGroup(marker);
+				// }
 
 			}
 		}
 
-		for (var year in yearLayers) {
-			yearLayers[year].addTo(map);
-		}
+		// for (var year in yearLayers) {
+		// 	yearLayers[year].addTo(map);
+		// }
 
 	}
 
@@ -498,6 +538,72 @@ $(function(){
 	    return res;
 	  };
 	}
+
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+	if (!Array.prototype.every) {
+	  Array.prototype.every = function(callbackfn, thisArg) {
+	    'use strict';
+	    var T, k;
+
+	    if (this == null) {
+	      throw new TypeError('this is null or not defined');
+	    }
+
+	    // 1. Let O be the result of calling ToObject passing the this 
+	    //    value as the argument.
+	    var O = Object(this);
+
+	    // 2. Let lenValue be the result of calling the Get internal method
+	    //    of O with the argument "length".
+	    // 3. Let len be ToUint32(lenValue).
+	    var len = O.length >>> 0;
+
+	    // 4. If IsCallable(callbackfn) is false, throw a TypeError exception.
+	    if (typeof callbackfn !== 'function') {
+	      throw new TypeError();
+	    }
+
+	    // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+	    if (arguments.length > 1) {
+	      T = thisArg;
+	    }
+
+	    // 6. Let k be 0.
+	    k = 0;
+
+	    // 7. Repeat, while k < len
+	    while (k < len) {
+
+	      var kValue;
+
+	      // a. Let Pk be ToString(k).
+	      //   This is implicit for LHS operands of the in operator
+	      // b. Let kPresent be the result of calling the HasProperty internal 
+	      //    method of O with argument Pk.
+	      //   This step can be combined with c
+	      // c. If kPresent is true, then
+	      if (k in O) {
+
+	        // i. Let kValue be the result of calling the Get internal method
+	        //    of O with argument Pk.
+	        kValue = O[k];
+
+	        // ii. Let testResult be the result of calling the Call internal method
+	        //     of callbackfn with T as the this value and argument list 
+	        //     containing kValue, k, and O.
+	        var testResult = callbackfn.call(T, kValue, k, O);
+
+	        // iii. If ToBoolean(testResult) is false, return false.
+	        if (!testResult) {
+	          return false;
+	        }
+	      }
+	      k++;
+	    }
+	    return true;
+	  };
+	}
+
 
 
 });

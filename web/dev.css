@@ -67,18 +67,18 @@ body {
 
 
 
-#year_toggle li {
+.toggle li {
 	display: inline-block;
 	border: 1px solid #999;
 	padding: 1px 5px;
 	border-radius: 5px;
 }
 
-#year_toggle li:hover {
+.toggle li:hover {
 	cursor: pointer;
 }
 
-#year_toggle li.selected {
+.toggle li.selected {
 	background: #ddd;
 }
 
