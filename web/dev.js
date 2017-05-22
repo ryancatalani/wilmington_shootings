@@ -251,7 +251,7 @@ $(function(){
 
 		$('#desc_title').text(incident.title);
 		$('#desc_date').text(incident.date + ' at ' + incident.time);
-		$('#desc_loc').text(incident.location);
+		$('#desc_loc').text(incident.location.replace(/&amp;/g, '&'));
 		$('#desc_summary').text(incident.summary);
 
 		if (incident.victims.length > 0) {
