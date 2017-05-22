@@ -4,6 +4,12 @@
 	margin: 0 1%;
 }
 
+.map_wrap_full {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 .map {
 	width: 100%;
 	height: 500px;
@@ -42,4 +48,19 @@
 }
 .legend .max {
 	float: right;
+}
+
+#year_toggle li {
+	display: inline-block;
+	border: 1px solid #999;
+	padding: 1px 5px;
+	border-radius: 5px;
+}
+
+#year_toggle li:hover {
+	cursor: pointer;
+}
+
+#year_toggle li.selected {
+	background: #ddd;
 }

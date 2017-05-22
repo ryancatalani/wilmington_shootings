@@ -21,6 +21,8 @@ incidents_original.each do |incident_original|
 		incident[:census_block_group_fips] = nil
 	end
 
+	incident['year'] = incident['date'].match(/, (\d{4})/)[1]
+
 	incidents << incident
 end
 

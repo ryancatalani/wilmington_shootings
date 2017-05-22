@@ -1,6 +1,6 @@
 require 'json'
 
-incidents_file = File.read('web/incidents_with_census_blocks.json')
+incidents_file = File.read('incidents_with_census_blocks.json')
 incidents_original = JSON.parse(incidents_file)
 
 incidents = []
@@ -10,9 +10,20 @@ incidents_original.each do |incident_original|
 	incident[:any_juvenile_victims] = false
 	incident[:any_juvenile_suspects] = false
 
+	incident[:any_juvenile_killed] = false
+	incident[:any_killed] = false
+
+	incident[:all_juvenile_victims_and_suspects] = false
+
 	if incident_original['victims'].count > 0
 		ages = incident_original['victims'].map{ |p| p['age'].to_i }
 		incident[:any_juvenile_victims] = ages.any?{|age| age < 18 }
+
+		killed = incident_original['victims'].map{ |p| p['killed'] }
+		incident[:any_killed] = killed.any?
+
+		juvenile_killed = incident_original['victims'].map {|p| p['age'].to_i < 18 && p['killed'] }
+		incident[:any_juvenile_killed] = juvenile_killed.any?
 	end
 
 	if incident_original['suspects'].count > 0
@@ -20,8 +31,15 @@ incidents_original.each do |incident_original|
 		incident[:any_juvenile_suspects] = ages.any?{|age| age < 18 }
 	end
 
-	puts incident
+	if incident_original['victims'].count > 0 && incident_original['suspects'].count > 0
+		all_juvenile_victims = incident_original['victims'].map{ |p| p['age'].to_i < 18 }.all?
+		all_juvenile_suspects = incident_original['suspects'].map{ |p| p['age'].to_i < 18 }.all?
+		incident[:all_juvenile_victims_and_suspects] = all_juvenile_victims && all_juvenile_suspects
+	end
 
+	incident['year'] = incident['date'].match(/, (\d{4})/)[1]
+
+	puts incident
 	incidents << incident
 
 end

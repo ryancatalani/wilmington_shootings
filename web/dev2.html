@@ -6,6 +6,7 @@
 
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
 
+	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" href="dev.css">
 
 
@@ -17,39 +18,24 @@
 	
 	<h1 id="loading">~ loading ~</h1>
 
-	<p>
-		Blue lines: zip code boundaries; white lines: <a href="https://www.census.gov/geo/reference/gtc/gtc_bg.html" target="_blank">census block group</a> boundaries
-	</p>
 
 	<div class="maps">
-		<div class="map_wrap">
+		<div class="map_wrap_full">
 			<h2>All shootings, all years</h2>
+			<ul id="year_toggle">
+				<li data-year="all" class="selected">All years</li>
+				<li data-year="2011">2011</li>
+				<li data-year="2012">2012</li>
+				<li data-year="2013">2013</li>
+				<li data-year="2014">2014</li>
+				<li data-year="2015">2015</li>
+				<li data-year="2016">2016</li>
+				<li data-year="2017">2017</li>
+			</ul>
 			<div id="map_dots" class="map"></div>
 		</div>
-		<div class="map_wrap">
-			<h2>Heat map of all shootings, all years</h2>
-			<div id="map_heatmap" class="map"></div>
-		</div>
 	</div>
 
-	<div class="maps">
-		<div class="map_wrap">
-			<h2># of shootings, all years</h2>
-			<div id="map_all" class="map"></div>
-		</div>
-		<div class="map_wrap">
-			<h2># of shootings with juvenile victims, all years</h2>
-			<div id="map_juvenile_victims" class="map"></div>		
-		</div>		
-		
-	</div>
-	
-	<div class="maps">
-		<div class="map_wrap">
-			<h2>Change in # of incidents, 2011-12 to 2016-17</h2>
-			<div id="map_diff" class="map"></div>
-		</div>
-	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>

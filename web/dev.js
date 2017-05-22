@@ -1,15 +1,14 @@
 $(function(){
 
-	var map_all = createMap('map_all');
-	var map_juvenile_victims = createMap('map_juvenile_victims');
-	var map_diff = createMap('map_diff');
 	var map_dots = createMap('map_dots');
-	var map_heatmap = createMap('map_heatmap');
+	// var map_all = createMap('map_all');
+	// var map_juvenile_victims = createMap('map_juvenile_victims');
+	// var map_diff = createMap('map_diff');
+	// var map_heatmap = createMap('map_heatmap');
 
-	var all_maps = [map_all, map_juvenile_victims, map_diff, map_dots, map_heatmap];
+	// var all_maps = [map_all, map_juvenile_victims, map_diff, map_dots, map_heatmap];
 	// sync_maps(all_maps);
-
-	sync_maps([map_heatmap, map_dots]);
+	// sync_maps([map_heatmap, map_dots]);
 
 	var census_blocks_geojson, incidents_data, tracts_years_diff;
 	$.when(
@@ -27,46 +26,47 @@ $(function(){
 			
 			$('#loading').hide();
 
-			createChoroplethMap({
-				census_blocks_geojson: census_blocks_geojson,
-				incidents_data: incidents_data,
-				map: map_all,
-				scale_colors: ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']
-			});
+			// createChoroplethMap({
+			// 	census_blocks_geojson: census_blocks_geojson,
+			// 	incidents_data: incidents_data,
+			// 	map: map_all,
+			// 	scale_colors: ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']
+			// });
 
-			var juvenile_victims_incidents = [];
-			for (var i = 0; i < incidents_data.length; i++) {
-				incident = incidents_data[i];
-				if (incident.any_juvenile_victims) {
-					juvenile_victims_incidents.push(incident);
-				}
-			};
+			// var juvenile_victims_incidents = [];
+			// for (var i = 0; i < incidents_data.length; i++) {
+			// 	incident = incidents_data[i];
+			// 	if (incident.any_juvenile_victims) {
+			// 		juvenile_victims_incidents.push(incident);
+			// 	}
+			// };
 
-			createChoroplethMap({
-				census_blocks_geojson: census_blocks_geojson,
-				incidents_data: juvenile_victims_incidents,
-				map: map_juvenile_victims,
-				scale_colors: ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']
-			});
+			// createChoroplethMap({
+			// 	census_blocks_geojson: census_blocks_geojson,
+			// 	incidents_data: juvenile_victims_incidents,
+			// 	map: map_juvenile_victims,
+			// 	scale_colors: ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']
+			// });
 
-			createChoroplethTractsDiffMap({
-				census_blocks_geojson: census_blocks_geojson,
-				diff_data: tracts_years_diff,
-				map: map_diff,
-				scale_colors: ['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse()
-			});
+			// createChoroplethTractsDiffMap({
+			// 	census_blocks_geojson: census_blocks_geojson,
+			// 	diff_data: tracts_years_diff,
+			// 	map: map_diff,
+			// 	scale_colors: ['#c51b7d','#e9a3c9','#fde0ef','#e6f5d0','#a1d76a','#4d9221'].reverse()
+			// });
 
 			createDotMap({
 				data: incidents_data,
-				map: map_dots
+				map: map_dots,
+				toggle_el: '#year_toggle li'
 			});
 
-			createHeatmap({
-				data: incidents_data,
-				map: map_heatmap
-			});
+			// createHeatmap({
+			// 	data: incidents_data,
+			// 	map: map_heatmap
+			// });
 
-			addZipCodeBoundsToMaps(all_maps);
+			addZipCodeBoundsToMaps([map_dots]);
 		}
 	});
 
@@ -94,6 +94,8 @@ $(function(){
 	}
 
 	function createHeatmap(opts) {
+		// https://github.com/Leaflet/Leaflet.heat
+
 		var data = opts.data,
 			map = opts.map;
 
@@ -119,36 +121,77 @@ $(function(){
 		var data = opts.data,
 			map = opts.map;
 
+		if (opts.toggle_el !== undefined) {
+			var toggle_el = opts.toggle_el;
+			$(toggle_el).click(function(){
+				if ( !$(this).hasClass('selected') ) {
+					var chosenYear = $(this).data('year');
+					
+					if (chosenYear === "all") {
+						for (var year in yearLayers) {
+							yearLayers[year].addTo(map);
+						}
+					} else {
+						for (var year in yearLayers) {
+							// console.log(chosenYear, key)
+							if (chosenYear != year) {
+								console.log(yearLayers[year]);
+								map.removeLayer(yearLayers[year]);
+							} else {
+								map.addLayer(yearLayers[year]);
+							}
+						}
+					}
+
+					$(this).siblings('.selected').removeClass('selected');
+					$(this).addClass('selected');
+
+				}
+
+			});
+		}
+
+		// var markers = [];
+		var yearLayers = {};
+
 		for (var i = 0; i < data.length; i++) {
 			var incident = data[i];
 			var lat = incident.lat;
 			var lng = incident.lng;
 
-			var any_killed = false;
-
-			for (var j = 0; j < incident.victims.length; j++) {
-				var victim = incident.victims[j];
-				if (victim.killed) {
-					any_killed = true;
-				}
-			};
-
-			var style = {
-				radius: 5,
-				color: '#8500E1',
-				weight: 1,
-				fillOpacity: 0.3
-			}
-
-			if (any_killed) {
-				style.color = '#DE7023';
-			}
-
 			if (typeof lat == 'string' && typeof lng == 'string') {
 				// (as long as they're not null)
-				L.circleMarker([lat, lng], style).addTo(map);
+
+				var markerOptions = {
+					radius: 4,
+					color: '#8500E1',
+					weight: 1,
+					fillOpacity: 0.5,
+					incidentID: incident.id
+				}
+
+				if (incident.any_juvenile_killed) {
+					markerOptions.color = '#f00';
+				} else if (incident.any_juvenile_victims) {
+					markerOptions.color = '#00f';
+				} else {
+					markerOptions.color = '#999';
+				}
+
+				var marker = L.circleMarker([lat, lng], markerOptions);
+
+				if (yearLayers[incident.year] !== undefined) {
+					yearLayers[incident.year].addLayer(marker);
+				} else {
+					yearLayers[incident.year] = L.layerGroup(marker);
+				}
+
 			}
-		};
+		}
+
+		for (var year in yearLayers) {
+			yearLayers[year].addTo(map);
+		}
 
 	}
 
