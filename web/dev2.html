@@ -19,8 +19,8 @@
 	<h1 id="loading">~ loading ~</h1>
 
 
-	<div class="maps">
-		<div class="map_wrap_full">
+	<div class="maps map_wrap_outer">
+		<div class="map_wrap_big">
 			<h2>All shootings, all years</h2>
 			<ul id="year_toggle">
 				<li data-year="all" class="selected">All years</li>
@@ -33,6 +33,32 @@
 				<li data-year="2017">2017</li>
 			</ul>
 			<div id="map_dots" class="map"></div>
+		</div>
+		<div class="map_wrap_small" id="incident_desc_outer">
+			<div id="incident_desc">
+				<ul>
+					<li>
+						<strong>Incident</strong> <span id="desc_title"></span>
+					</li>
+					<li>
+						<strong>Date</strong> <span id="desc_date"></span>
+					</li>
+					<li>
+						<strong>Location</strong> <span id="desc_loc"></span>
+					</li>
+					<li>
+						<strong>Description</strong> <span id="desc_summary"></span>
+					</li>
+					<li>
+						<strong>Victims</strong>
+						<ul id="desc_victims"></ul>
+					</li>
+					<li>
+						<strong>Suspects</strong>
+						<ul id="desc_suspects"></ul>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 

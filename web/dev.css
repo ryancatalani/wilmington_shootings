@@ -1,13 +1,28 @@
+body {
+	font-family: sans-serif;
+}
+
+.map_wrap_outer {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
 .map_wrap {
 	width: 48%;
 	float: left;
 	margin: 0 1%;
 }
 
-.map_wrap_full {
-	width: 100%;
-	max-width: 800px;
-	margin: 0 auto;
+.map_wrap_big {
+	width: 75%;
+	float: left;
+}
+
+.map_wrap_small {
+	width: 24%;
+	float: left;
+	margin-left: 1%;
 }
 
 .map {
@@ -63,4 +78,24 @@
 
 #year_toggle li.selected {
 	background: #ddd;
+}
+
+#incident_desc_outer {
+	height: 500px;
+	overflow: scroll;
+}
+
+#incident_desc {
+	line-height: 1.2em;
+	display: none;
+}
+
+#incident_desc strong {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+#incident_desc li {
+	margin-bottom: 5px;
 }

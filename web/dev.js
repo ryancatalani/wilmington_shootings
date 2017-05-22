@@ -179,6 +179,9 @@ $(function(){
 				}
 
 				var marker = L.circleMarker([lat, lng], markerOptions);
+				marker.on('click', function(){
+					fillIncidentDesc(this.options.incidentID);
+				});
 
 				if (yearLayers[incident.year] !== undefined) {
 					yearLayers[incident.year].addLayer(marker);
@@ -192,6 +195,65 @@ $(function(){
 		for (var year in yearLayers) {
 			yearLayers[year].addTo(map);
 		}
+
+	}
+
+	function fillIncidentDesc(incidentID) {
+		$('#incident_desc').show();
+
+		var incident = incidents_data.filter(function(incident_data){
+			return incident_data.id === incidentID;
+		})[0];
+
+		$('#desc_title').text(incident.title);
+		$('#desc_date').text(incident.date + ' at ' + incident.time);
+		$('#desc_loc').text(incident.location);
+		$('#desc_summary').text(incident.summary);
+
+		if (incident.victims.length > 0) {
+			var els = [];
+			for (var i = 0; i < incident.victims.length; i++) {
+				var victim = incident.victims[i];
+				var text = victim.name;
+				if (victim.age && victim.age.length > 0) {
+					text += ', ' + victim.age;
+				}
+				if (victim.killed) {
+					text += ', killed';
+				}
+				if (victim.about && victim.about.length > 0) {
+					text += ': ' + victim.about;
+				}
+				var el = $('<li></li>').text(text);
+				els.push(el);
+			};
+			$('#desc_victims').html(els);
+		} else {
+			$('#desc_victims').html('<li>No victims identified</li>');
+		}
+
+		if (incident.suspects.length > 0) {
+			var els = [];
+			for (var i = 0; i < incident.suspects.length; i++) {
+				var suspect = incident.suspects[i];
+				var text = suspect.name;
+				if (suspect.age && suspect.age.length > 0) {
+					text += ', ' + suspect.age;
+				}
+				if (suspect.arrest_date && suspect.arrest_date.length > 0) {
+					text += ', arrested on ' + suspect.arrest_date;
+				}
+				if (suspect.about && suspect.about.length > 0) {
+					text += ': ' + suspect.about;
+				}
+				var el = $('<li></li>').text(text);
+				els.push(el);
+			};
+			$('#desc_suspects').html(els);
+		} else {
+			$('#desc_suspects').html('<li>No suspects identified</li>');
+		}
+
 
 	}
 
@@ -391,6 +453,42 @@ $(function(){
 	L.topoJson = function (data, options) {
 	    return new L.TopoJSON(data, options);
 	};
+
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+	if (!Array.prototype.filter) {
+	  Array.prototype.filter = function(fun/*, thisArg*/) {
+	    'use strict';
+
+	    if (this === void 0 || this === null) {
+	      throw new TypeError();
+	    }
+
+	    var t = Object(this);
+	    var len = t.length >>> 0;
+	    if (typeof fun !== 'function') {
+	      throw new TypeError();
+	    }
+
+	    var res = [];
+	    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+	    for (var i = 0; i < len; i++) {
+	      if (i in t) {
+	        var val = t[i];
+
+	        // NOTE: Technically this should Object.defineProperty at
+	        //       the next index, as push can be affected by
+	        //       properties on Object.prototype and Array.prototype.
+	        //       But that method's new, and collisions should be
+	        //       rare, so use the more-compatible alternative.
+	        if (fun.call(thisArg, val, i, t)) {
+	          res.push(val);
+	        }
+	      }
+	    }
+
+	    return res;
+	  };
+	}
 
 
 });
