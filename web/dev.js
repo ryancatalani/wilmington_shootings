@@ -271,6 +271,10 @@ $(function(){
 	}
 
 	function highlightIncident(opts) {
+		if (last_incident_marker_clicked !== undefined && last_incident_marker_clicked === opts.marker) {
+			return;
+		}
+
 		var marker = opts.marker,
 			map = opts.map,
 			panelID = opts.panel,

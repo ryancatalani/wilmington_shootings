@@ -7,9 +7,13 @@
   font-family: "Futura Today Demibold";
   src: url("futura_today_demibold.woff") format("woff"); }
 body {
-  font: 14px/22px arial, sans-serif;
+  font: 16px/24px arial, sans-serif;
   color: #333;
   background-color: #fafafa; }
+  @media (min-width: 540px) {
+    body {
+      font-size: 14px;
+      line-height: 22px; } }
 
 .wrap {
   width: 100%;
