@@ -1,4 +1,4 @@
-$break1: 600px;
+$break1: 540px;
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
@@ -15,7 +15,7 @@ body {
 
 .wrap {
 	width: 100%;
-	max-width: 600px;
+	max-width: $break1;
 	margin: 0 auto;
 }
 

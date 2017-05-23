@@ -1,6 +1,6 @@
 $(function(){
 
-	var break1 = 600;
+	var break1 = 540;
 
 	var map_dots = createMap('map_dots');
 	// var map_all = createMap('map_all');
