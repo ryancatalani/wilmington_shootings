@@ -16,11 +16,8 @@
 	<div class="wrap">
 			
 		<h1>Wilmington Shootings</h1>
-		
-		<h1 id="loading">~ loading ~</h1>
 
-
-		<div class="row">
+		<div class="row is_loading">
 			<h2>All shootings, all years</h2>
 			<ul id="year_toggle" class="toggle" data-toggle="year">
 				<li data-toggle-option="" class="selected">All years</li>
@@ -38,11 +35,13 @@
 			</ul>
 		</div>
 
-		<div class="row">
+		<div class="row is_loading">
 			<div class="map_control_btn" id="map_dots_reset">Reset map</div>
 		</div>
 
 		<div class="row" id="incidents_map_core">
+			<div id="loading"><span class="spinner"></span> LOADING...</div>
+
 			<div id="map_dots" class="map"></div>
 
 			<div id="incident_desc_outer">
@@ -78,7 +77,7 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row is_loading">
 			<ul id="incidents_legend">
 				<li id="juvenile_killed">Juvenile victim, killed</li>
 				<li id="juvenile_wounded">Juvenile victim, wounded</li>
@@ -97,7 +96,7 @@
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
 	<script src="leaflet_choropleth.js"></script>
 	<script src="L.Map.Sync.js"></script>
-	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<script src="https://d3js.org/topojson.v1.min.js"></script>
 	<script src="leaflet-heat.js"></script>
 	<script src="dev.js"></script>
 

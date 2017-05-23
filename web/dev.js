@@ -16,19 +16,20 @@ $(function(){
 
 	var census_blocks_geojson, incidents_data, tracts_years_diff;
 	$.when(
-		$.getJSON('cb_2016_10_bg_500k.json', function(data) {
-			census_blocks_geojson = data;
-		}),
-		$.getJSON('incidents_juvenile_with_census_blocks.json', function(data) {
+		// $.getJSON('cb_2016_10_bg_500k.json', function(data) {
+		// 	census_blocks_geojson = data;
+		// }),
+		$.getJSON('incidents_juvenile_with_census_blocks_c.json', function(data) {
 			incidents_data = data;
-		}),
-		$.getJSON('tracts_years_diff.json', function(data) {
-			tracts_years_diff = data;
 		})
+		// $.getJSON('tracts_years_diff.json', function(data) {
+		// 	tracts_years_diff = data;
+		// })
 	).then(function() {
-		if (census_blocks_geojson && incidents_data && tracts_years_diff) {
+		if (incidents_data) {
 			
 			$('#loading').hide();
+			$('.is_loading').css('opacity', 1);
 
 			// createChoroplethMap({
 			// 	census_blocks_geojson: census_blocks_geojson,
@@ -87,7 +88,7 @@ $(function(){
 		// // https: also suppported.
 	
 
-		var Esri_WorldGrayCanvas = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+		var Esri_WorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 			attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
 			maxZoom: 16
 		}).addTo(map);
