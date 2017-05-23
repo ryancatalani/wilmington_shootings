@@ -47,9 +47,8 @@ $(function(){
 				datasets: [
 					{
 						label: 'Teen gun violence incidents per 10,000 people',
-						backgroundColor: '#ccc',
-						borderColor: '#bbb',
-						borderWidth: 1,
+						backgroundColor: 'rgb(0, 155, 255)',
+						borderWidth: 0,
 						data: []
 					}
 				]
@@ -68,12 +67,43 @@ $(function(){
 				chartData.datasets[0].data.push(perpop);
 			};
 
-			console.log(chartData);
-
-
 			var ctx = $('#chart_cities');
 			var chartCities = new Chart(ctx, {
 				type: 'bar',
+				data: chartData
+			});
+		}
+	});
+
+	Papa.parse('juveniles_charged_gang.csv', {
+		download: true,
+		header: true,
+		dynamicTyping: true,
+		complete: function(results) {
+			var rawData = results.data;
+
+			var chartData = {
+				labels: [],
+				datasets: [
+					{
+						label: 'Juveniles charged with gang participation',
+						backgroundColor: 'rgb(0, 155, 255)',
+						borderColor: 'rgb(0, 119, 235)',
+						borderWidth: 2,
+						data: []
+					}
+				]
+			};
+
+			for (var i = 0; i < rawData.length; i++) {
+				var yearData = rawData[i];
+				chartData.labels.push(yearData.year);
+				chartData.datasets[0].data.push(yearData.count);
+			};
+
+			var ctx = $('#chart_charged');
+			var chartCharged = new Chart(ctx, {
+				type: 'line',
 				data: chartData
 			});
 		}

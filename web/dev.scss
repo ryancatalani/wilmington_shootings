@@ -20,7 +20,7 @@ body {
 .wrap {
 	width: 100%;
 	max-width: $break1;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 
 .map_wrap {
@@ -251,7 +251,7 @@ h2 {
 	}
 }
 
-#chart_cities {
+.chart {
 	width: 100%;
 	height: 250px;
 }
