@@ -16,3 +16,6 @@ xcuserdata
 # svn & cvs
 .svn
 CVS
+
+web/.sass-cache
+web/.sass-cache/*

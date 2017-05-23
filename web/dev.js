@@ -283,7 +283,7 @@ $(function(){
 					right: 0
 				}, 250).show();
 			} else {
-				$(panelID).show();
+				$(panelID).slideDown(250);
 			}
 		}
 
@@ -356,7 +356,7 @@ $(function(){
 					$(this).hide();
 				});
 			} else {
-				$(panelID).hide();
+				$(panelID).slideUp(250);
 			}
 			marker.setRadius(4);
 			last_incident_marker_clicked = undefined;

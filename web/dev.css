@@ -3,6 +3,9 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+@font-face {
+  font-family: "Futura Today Demibold";
+  src: url("futura_today_demibold.woff") format("woff"); }
 body {
   font: 14px/22px arial, sans-serif;
   color: #333;
@@ -29,12 +32,23 @@ body {
 
 .map {
   width: 100%;
-  height: 500px; }
+  height: 200px; }
+  @media (min-width: 600px) {
+    .map {
+      height: 500px; } }
 
 .row:after {
   content: " ";
   display: block;
   clear: both; }
+
+h1 {
+  font: 700 32px/34px helvetica,arial,sans-serif;
+  margin: 20px 0; }
+
+h2 {
+  font: 24px/1em 'Futura Today Demibold',arial,sans-serif;
+  margin-bottom: 10px; }
 
 .legend {
   color: #555;
@@ -60,15 +74,20 @@ body {
   .legend .max {
     float: right; }
 
-.toggle li {
+.map_control_btn, .toggle li {
+  font-size: 13px;
   display: inline-block;
   border: 1px solid #999;
   padding: 1px 5px;
-  border-radius: 5px; }
-  .toggle li:hover {
+  border-radius: 5px;
+  margin-bottom: 5px; }
+  @media (min-width: 600px) {
+    .map_control_btn, .toggle li {
+      font-size: 14px; } }
+  .map_control_btn:hover, .toggle li:hover {
     cursor: pointer;
     background: #eee; }
-  .toggle li.selected {
+  .map_control_btn.selected, .toggle li.selected {
     background: #ddd; }
 
 #incidents_map_core {
@@ -77,7 +96,8 @@ body {
     #incidents_map_core {
       overflow: hidden; } }
   #incidents_map_core #incident_desc_outer {
-    display: none; }
+    display: none;
+    padding: 10px; }
     @media (min-width: 600px) {
       #incidents_map_core #incident_desc_outer {
         height: 500px;
@@ -88,7 +108,6 @@ body {
         z-index: 1000;
         background-color: #fafafa;
         width: 240px;
-        padding: 10px;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
@@ -119,16 +138,24 @@ body {
     #incidents_map_core #incident_desc li {
       margin-bottom: 5px; }
 
-#incidents_legend li {
-  display: inline-block;
-  color: #fff;
-  padding: 1px 5px;
-  border-radius: 5px; }
-  #incidents_legend li#juvenile_killed {
-    background: #f00; }
-  #incidents_legend li#juvenile_wounded {
-    background: #00f; }
-  #incidents_legend li#other {
-    background: #999; }
+#incidents_legend {
+  text-align: center;
+  font-size: 13px; }
+  @media (min-width: 600px) {
+    #incidents_legend {
+      font-size: 14px; } }
+  #incidents_legend li {
+    display: inline;
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    white-space: pre; }
+    #incidents_legend li#juvenile_killed {
+      background: #f00; }
+    #incidents_legend li#juvenile_wounded {
+      background: #00f; }
+    #incidents_legend li#other {
+      background: #999; }
 
 /*# sourceMappingURL=dev.css.map */
