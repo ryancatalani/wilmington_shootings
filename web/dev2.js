@@ -71,7 +71,12 @@ $(function(){
 			var ctx = $('#chart_cities');
 			var chartCities = new Chart(ctx, {
 				type: 'horizontalBar',
-				data: chartData
+				data: chartData,
+				options: {
+					legend: {
+						position: 'bottom'
+					}
+				}
 			});
 		}
 	});
@@ -105,7 +110,12 @@ $(function(){
 			var ctx = $('#chart_charged');
 			var chartCharged = new Chart(ctx, {
 				type: 'line',
-				data: chartData
+				data: chartData,
+				options: {
+					legend: {
+						position: 'bottom'
+					}
+				}
 			});
 		}
 	});
