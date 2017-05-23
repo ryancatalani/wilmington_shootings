@@ -1,5 +1,7 @@
 $(function(){
 
+	var break1 = 600;
+
 	var map_dots = createMap('map_dots');
 	// var map_all = createMap('map_all');
 	// var map_juvenile_victims = createMap('map_juvenile_victims');
@@ -220,7 +222,12 @@ $(function(){
 
 				var marker = L.circleMarker([lat, lng], markerOptions);
 				marker.on('click', function(){
-					highlightIncident(this);
+					highlightIncident({
+						marker: this,
+						map: map,
+						panel: '#incident_desc_outer',
+						closePanel: '.close_panel'
+					});
 				});
 
 				marker.addTo(map);
@@ -240,7 +247,7 @@ $(function(){
 			$resetBtn.click(function(e){
 				e.preventDefault();
 				map.setView([39.745833, -75.546667], 13);
-				$('#incident_desc').hide();
+				$('#incident_desc_outer').hide();
 				for (var i = 0; i < markers.length; i++) {
 					var marker = markers[i];
 					if (!map.hasLayer(marker)) {
@@ -253,17 +260,34 @@ $(function(){
 						$(this).children().first().addClass('selected');
 					})
 				}
+				if (last_incident_marker_clicked !== undefined) {
+					last_incident_marker_clicked.setRadius(4);	
+				}
 				return false;
 			});
 		}
 
 	}
 
-	function highlightIncident(marker) {
-		$('#incident_desc').show();
+	function highlightIncident(opts) {
+		var marker = opts.marker,
+			map = opts.map,
+			panelID = opts.panel,
+			closePanelID = opts.closePanel;
+
+		map.panTo(marker.getLatLng());
+
+		if ( $(panelID).css('display') == 'none' ) {
+			if ( $(window).width() >= break1 ) {
+				$(panelID).css('right', '-250px').animate({
+					right: 0
+				}, 250).show();
+			} else {
+				$(panelID).show();
+			}
+		}
 
 		var incidentID = marker.options.incidentID;
-
 		var incident = incidents_data.filter(function(incident_data){
 			return incident_data.id === incidentID;
 		})[0];
@@ -320,8 +344,23 @@ $(function(){
 		if (last_incident_marker_clicked !== undefined) {
 			last_incident_marker_clicked.setRadius(4);
 		}
+
 		marker.setRadius(20);
 		last_incident_marker_clicked = marker;
+
+		$(closePanelID).click(function(){
+			if ( $(window).width() >= break1 ) {
+				$(panelID).animate({
+					right: -250
+				}, 250, function(){
+					$(this).hide();
+				});
+			} else {
+				$(panelID).hide();
+			}
+			marker.setRadius(4);
+			last_incident_marker_clicked = undefined;
+		});
 
 	}
 

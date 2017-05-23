@@ -1,128 +1,134 @@
-body {
-	font-family: sans-serif;
-}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
-.map_wrap_outer {
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-}
+body {
+  font: 14px/22px arial, sans-serif;
+  color: #333;
+  background-color: #fafafa; }
+
+.wrap {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; }
 
 .map_wrap {
-	width: 48%;
-	float: left;
-	margin: 0 1%;
-}
+  width: 48%;
+  float: left;
+  margin: 0 1%; }
 
-.map_wrap_big {
-	width: 75%;
-	float: left;
-}
+.col_big {
+  width: 60%;
+  float: left; }
 
-.map_wrap_small {
-	width: 24%;
-	float: left;
-	margin-left: 1%;
-}
+.col_small {
+  width: 39%;
+  float: left;
+  margin-left: 1%; }
 
 .map {
-	width: 100%;
-	height: 500px;
-}
+  width: 100%;
+  height: 500px; }
 
-.maps:after {
-	content:" ";
-	display:block;
-	clear:both;
-}
+.row:after {
+  content: " ";
+  display: block;
+  clear: both; }
 
 .legend {
-	color: #555;
-	padding: 6px 8px;
-	font: 12px Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	background: white;
-	background: rgba(255,255,255,0.8);
-	box-shadow: 0 0 15px rgba(0,0,0,0.2);
-	border-radius: 5px;
-}
-.legend ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	clear: both;
-}
-.legend li {
-	display: inline-block;
-	width: 30px;
-	height: 22px;
-}
-.legend .min {
-	float: left;
-	padding-bottom: 5px;
-}
-.legend .max {
-	float: right;
-}
-
-
+  color: #555;
+  padding: 6px 8px;
+  font: 12px Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px; }
+  .legend ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    clear: both; }
+  .legend li {
+    display: inline-block;
+    width: 30px;
+    height: 22px; }
+  .legend .min {
+    float: left;
+    padding-bottom: 5px; }
+  .legend .max {
+    float: right; }
 
 .toggle li {
-	display: inline-block;
-	border: 1px solid #999;
-	padding: 1px 5px;
-	border-radius: 5px;
-}
+  display: inline-block;
+  border: 1px solid #999;
+  padding: 1px 5px;
+  border-radius: 5px; }
+  .toggle li:hover {
+    cursor: pointer;
+    background: #eee; }
+  .toggle li.selected {
+    background: #ddd; }
 
-.toggle li:hover {
-	cursor: pointer;
-}
-
-.toggle li.selected {
-	background: #ddd;
-}
-
-
-
-
-#incident_desc_outer {
-	height: 500px;
-	overflow: scroll;
-}
-
-#incident_desc {
-	line-height: 1.2em;
-	display: none;
-}
-
-#incident_desc strong {
-	text-transform: uppercase;
-	font-size: 0.8em;
-	font-weight: bold;
-}
-
-#incident_desc li {
-	margin-bottom: 5px;
-}
-
-
-
+#incidents_map_core {
+  position: relative; }
+  @media (min-width: 600px) {
+    #incidents_map_core {
+      overflow: hidden; } }
+  #incidents_map_core #incident_desc_outer {
+    display: none; }
+    @media (min-width: 600px) {
+      #incidents_map_core #incident_desc_outer {
+        height: 500px;
+        overflow: scroll;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #fafafa;
+        width: 240px;
+        padding: 10px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); } }
+  #incidents_map_core .close_panel {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    float: right;
+    background: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: bold;
+    margin-left: 10px; }
+    #incidents_map_core .close_panel:hover {
+      cursor: pointer;
+      background: #f4f4f4; }
+  #incidents_map_core #incident_desc {
+    line-height: 1.2em; }
+    #incidents_map_core #incident_desc strong {
+      text-transform: uppercase;
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #646464; }
+    #incidents_map_core #incident_desc li {
+      margin-bottom: 5px; }
 
 #incidents_legend li {
-	display: inline-block;
-	color: #fff;
-	padding: 1px 5px;
-	border-radius: 5px;
-}
+  display: inline-block;
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 5px; }
+  #incidents_legend li#juvenile_killed {
+    background: #f00; }
+  #incidents_legend li#juvenile_wounded {
+    background: #00f; }
+  #incidents_legend li#other {
+    background: #999; }
 
-#incidents_legend li#juvenile_killed {
-	background: #f00;
-}
-
-#incidents_legend li#juvenile_wounded {
-	background: #00f;
-}
-
-#incidents_legend li#other {
-	background: #999;
-}
+/*# sourceMappingURL=dev.css.map */

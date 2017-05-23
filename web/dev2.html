@@ -13,14 +13,14 @@
 </head>
 <body>
 	
-	
-	<h1>Wilmington Shootings</h1>
-	
-	<h1 id="loading">~ loading ~</h1>
+	<div class="wrap">
+			
+		<h1>Wilmington Shootings</h1>
+		
+		<h1 id="loading">~ loading ~</h1>
 
 
-	<div class="maps map_wrap_outer">
-		<div class="map_wrap_big">
+		<div class="row">
 			<h2>All shootings, all years</h2>
 			<ul id="year_toggle" class="toggle" data-toggle="year">
 				<li data-toggle-option="" class="selected">All years</li>
@@ -37,51 +37,63 @@
 				<li data-toggle-option="true">Only shootings with juvenile victims</li>
 			</ul>
 		</div>
-		<div class="map_wrap_small">
-			<a href="#" id="map_dots_reset">Reset map</a>
-		</div>
-	</div>
 
-	<div class="maps map_wrap_outer">
-		<div class="map_wrap_big">
-			<div id="map_dots" class="map"></div>
-		</div>
-		<div class="map_wrap_small" id="incident_desc_outer">
-			<div id="incident_desc">
-				<ul>
-					<li>
-						<strong>Incident</strong> <span id="desc_title"></span>
-					</li>
-					<li>
-						<strong>Date</strong> <span id="desc_date"></span>
-					</li>
-					<li>
-						<strong>Location</strong> <span id="desc_loc"></span>
-					</li>
-					<li>
-						<strong>Description</strong> <span id="desc_summary"></span>
-					</li>
-					<li>
-						<strong>Victims</strong>
-						<ul id="desc_victims"></ul>
-					</li>
-					<li>
-						<strong>Suspects</strong>
-						<ul id="desc_suspects"></ul>
-					</li>
-				</ul>
+		<div class="row">
+			<div class="col_small">
+				<a href="#" id="map_dots_reset">Reset map</a>
 			</div>
 		</div>
+
+		<div class="row" id="incidents_map_core">
+			<div id="map_dots" class="map"></div>
+
+			<div id="incident_desc_outer">
+				<div class="close_panel">
+					x
+				</div>
+
+				<div id="incident_desc">
+					<ul>
+						<li>
+							<strong>Incident</strong> <span id="desc_title"></span>
+						</li>
+						<li>
+							<strong>Date</strong> <span id="desc_date"></span>
+						</li>
+						<li>
+							<strong>Location</strong> <span id="desc_loc"></span>
+						</li>
+						<li>
+							<strong>Description</strong> <span id="desc_summary"></span>
+						</li>
+						<li>
+							<strong>Victims</strong>
+							<ul id="desc_victims"></ul>
+						</li>
+						<li>
+							<strong>Suspects</strong>
+							<ul id="desc_suspects"></ul>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<ul id="incidents_legend">
+				<li id="juvenile_killed">Juvenile victim, killed</li>
+				<li id="juvenile_wounded">Juvenile victim, wounded</li>
+				<li id="other">All other shootings</li>
+			</ul>
+		</div>
+
+
+
 	</div>
 
-	<div class="maps map_wrap_outer">
-		<ul id="incidents_legend">
-			<li id="juvenile_killed">Juvenile victim, killed</li>
-			<li id="juvenile_wounded">Juvenile victim, wounded</li>
-			<li id="other">All other shootings</li>
-		</ul>
-	</div>
-
+	
+	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
