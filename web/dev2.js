@@ -59,7 +59,8 @@ $(function(){
 			var precision = 10;
 			for (var i = 0; i < citiesToInclude; i++) {
 				var cityData = rawData[i];
-				var name = cityData.city + ', ' + stateNameToAbbr(cityData.state);
+				var position = i+1;
+				var name = '#' + position + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
 				var percapita = cityData.teen_incidents_tot_per_capita;
 				var perpop = Math.round(percapita * multiplier * precision) / precision;
 
@@ -69,7 +70,7 @@ $(function(){
 
 			var ctx = $('#chart_cities');
 			var chartCities = new Chart(ctx, {
-				type: 'bar',
+				type: 'horizontalBar',
 				data: chartData
 			});
 		}
