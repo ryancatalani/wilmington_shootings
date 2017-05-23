@@ -297,7 +297,7 @@ $(function(){
 			return incident_data.id === incidentID;
 		})[0];
 
-		$('#desc_title').text(incident.title);
+		// $('#desc_title').text(incident.title);
 		$('#desc_date').text(incident.date + ' at ' + incident.time);
 		$('#desc_loc').text(incident.location.replace(/&amp;/g, '&'));
 		$('#desc_summary').text(incident.summary);
@@ -307,7 +307,7 @@ $(function(){
 			for (var i = 0; i < incident.victims.length; i++) {
 				var victim = incident.victims[i];
 				var text = victim.name;
-				if (victim.age && victim.age.length > 0) {
+				if (victim.age && victim.age.length > 0 && victim.age.toLowerCase().indexOf("unidentified") == -1 ) {
 					text += ', ' + victim.age;
 				}
 				if (victim.killed) {
@@ -324,27 +324,27 @@ $(function(){
 			$('#desc_victims').html('<li>No victims identified</li>');
 		}
 
-		if (incident.suspects.length > 0) {
-			var els = [];
-			for (var i = 0; i < incident.suspects.length; i++) {
-				var suspect = incident.suspects[i];
-				var text = suspect.name;
-				if (suspect.age && suspect.age.length > 0) {
-					text += ', ' + suspect.age;
-				}
-				if (suspect.arrest_date && suspect.arrest_date.length > 0) {
-					text += ', arrested on ' + suspect.arrest_date;
-				}
-				if (suspect.about && suspect.about.length > 0) {
-					text += ': ' + suspect.about;
-				}
-				var el = $('<li></li>').text(text);
-				els.push(el);
-			};
-			$('#desc_suspects').html(els);
-		} else {
-			$('#desc_suspects').html('<li>No suspects identified</li>');
-		}
+		// if (incident.suspects.length > 0) {
+		// 	var els = [];
+		// 	for (var i = 0; i < incident.suspects.length; i++) {
+		// 		var suspect = incident.suspects[i];
+		// 		var text = suspect.name;
+		// 		if (suspect.age && suspect.age.length > 0) {
+		// 			text += ', ' + suspect.age;
+		// 		}
+		// 		if (suspect.arrest_date && suspect.arrest_date.length > 0) {
+		// 			text += ', arrested on ' + suspect.arrest_date;
+		// 		}
+		// 		if (suspect.about && suspect.about.length > 0) {
+		// 			text += ': ' + suspect.about;
+		// 		}
+		// 		var el = $('<li></li>').text(text);
+		// 		els.push(el);
+		// 	};
+		// 	$('#desc_suspects').html(els);
+		// } else {
+		// 	$('#desc_suspects').html('<li>No suspects identified</li>');
+		// }
 
 		if (last_incident_marker_clicked !== undefined) {
 			last_incident_marker_clicked.setRadius(4);
