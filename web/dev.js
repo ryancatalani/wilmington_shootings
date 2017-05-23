@@ -73,6 +73,7 @@ $(function(){
 			// });
 
 			// addZipCodeBoundsToMaps([map_dots]);
+			addWilmingtonBoundsToMaps([map_dots]);
 		}
 	});
 
@@ -517,6 +518,30 @@ $(function(){
 					style: style
 				});
 				zipLayer.addTo(map);
+			};
+
+		});
+		
+	}
+
+	function addWilmingtonBoundsToMaps(all_maps, opts={}) {
+		$.getJSON('wilmington_bounds_topo.json', function(bounds_data) {
+
+			for (var i = 0; i < all_maps.length; i++) {
+				var map = all_maps[i];
+
+				var style = opts.style || {
+					color: '#333',
+					opacity: 0.5,
+					weight: 2,
+					dashArray: "2, 5",
+					fill: false
+				}
+
+				var boundsLayer = new L.TopoJSON(bounds_data, {
+					style: style
+				});
+				boundsLayer.addTo(map);
 			};
 
 		});
