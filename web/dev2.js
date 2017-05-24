@@ -45,7 +45,7 @@ $(function(){
 				datasets: [
 					{
 						label: 'Teen gun violence incidents per 10,000 people',
-						backgroundColor: 'rgb(0, 155, 255)',
+						backgroundColor: 'rgb(116, 23, 132)',
 						borderWidth: 0,
 						data: []
 					}
@@ -90,8 +90,8 @@ $(function(){
 				datasets: [
 					{
 						label: 'Juveniles charged with gang participation',
-						backgroundColor: 'rgb(0, 155, 255)',
-						borderColor: 'rgb(0, 119, 235)',
+						backgroundColor: 'rgba(116, 23, 132, 0.5)',
+						borderColor: 'rgb(116, 23, 132)',
 						borderWidth: 2,
 						data: []
 					}
@@ -378,8 +378,8 @@ $(function(){
 		final_values_juvenile = _.map(overTimeData, function(value, key) { return value.juveniles });
 		var juvenile_dataset = {
 			label: 'Gun violence incidents with juvenile victims',
-			backgroundColor: 'rgb(158, 29, 10)',
-			borderColor: 'rgb(131, 12, 0)',
+			backgroundColor: 'rgb(116, 23, 132)',
+			borderColor: 'rgb(116, 23, 132)',
 			borderWidth: 2,
 			fill: false,
 			data: final_values_juvenile
