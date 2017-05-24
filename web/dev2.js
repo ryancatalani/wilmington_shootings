@@ -255,9 +255,9 @@ $(function(){
 				}
 
 				if (incident.any_juvenile_killed) {
-					markerOptions.color = '#f00';
+					markerOptions.color = '#B50E00';
 				} else if (incident.any_juvenile_victims) {
-					markerOptions.color = '#00f';
+					markerOptions.color = '#0082FF';
 				} else {
 					markerOptions.color = '#999';
 				}
