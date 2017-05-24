@@ -145,11 +145,9 @@ $(function(){
 			map = opts.map;
 
 		var markers = [];
+		var chartIncidents;
 
-		var month_year_hash = {},
-			month_year_labels = [],
-			month_year_values_all = [],
-			month_year_values_juvenile = [];
+		// var over_time_hash = {};
 
 		if (opts.toggle_el !== undefined && opts.toggle_class !== undefined) {
 			var toggle_el = opts.toggle_el,
@@ -171,7 +169,7 @@ $(function(){
 							filterOptions[toToggle] = toggleOption;
 						}
 					});
-					console.log(filterOptions);
+					// console.log(filterOptions);
 
 					var filteredIDs = [];
 
@@ -186,13 +184,14 @@ $(function(){
 								results.push(result);
 							}
 						}
+						// if every result is true, add incident ID to filtered IDs
 						if (results.every(function(el) { return el })) {
 							filteredIDs.push(incident.id);
 						}
 
 					});
 
-					console.log(filteredIDs);
+					// console.log(filteredIDs);
 
 					for (var i = 0; i < markers.length; i++) {
 						var marker = markers[i];
@@ -210,6 +209,10 @@ $(function(){
 						}
 					};
 					
+					// chart manipulation
+					var newChartData = filterOverTimeData(data, filterOptions);
+					chartIncidents.config.data = newChartData;
+					chartIncidents.update();
 
 				}
 
@@ -223,22 +226,22 @@ $(function(){
 			var lat = incident.lat;
 			var lng = incident.lng;
 
-			var month_year = incident.year_month;
+			// var increment = incident.year;
 
-			if (month_year_hash[month_year] === undefined) {
-				month_year_hash[month_year] = {};
-				month_year_hash[month_year].all = 1;
-				if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
-					month_year_hash[month_year].juveniles = 1;
-				} else {
-					month_year_hash[month_year].juveniles = 0;
-				}
-			} else {
-				month_year_hash[month_year].all += 1;
-				if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
-					month_year_hash[month_year].juveniles += 1;
-				}
-			}
+			// if (over_time_hash[increment] === undefined) {
+			// 	over_time_hash[increment] = {};
+			// 	over_time_hash[increment].all = 1;
+			// 	if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
+			// 		over_time_hash[increment].juveniles = 1;
+			// 	} else {
+			// 		over_time_hash[increment].juveniles = 0;
+			// 	}
+			// } else {
+			// 	over_time_hash[increment].all += 1;
+			// 	if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
+			// 		over_time_hash[increment].juveniles += 1;
+			// 	}
+			// }
 
 			if (typeof lat == 'string' && typeof lng == 'string') {
 				// (as long as they're not null)
@@ -275,37 +278,10 @@ $(function(){
 			}
 		}
 
-		for (var month_year in month_year_hash) {
-			var values = month_year_hash[month_year];
-			month_year_labels.push(month_year);
-			month_year_values_all.push(values.all);
-			month_year_values_juvenile.push(values.juveniles);
-		}
-
-		console.log(month_year_labels, month_year_values_all, month_year_values_juvenile);
-
-		var chartData = {
-			labels: month_year_labels,
-			datasets: [
-				{
-					label: 'Gun violence incidents with juvenile victims',
-					backgroundColor: 'rgb(158, 29, 10)',
-					borderColor: 'rgb(131, 12, 0)',
-					borderWidth: 2,
-					data: month_year_values_juvenile
-				},
-				{
-					label: 'All gun violence incidents',
-					backgroundColor: 'rgb(0, 155, 255)',
-					borderColor: 'rgb(0, 119, 235)',
-					borderWidth: 2,
-					data: month_year_values_all
-				}
-			]
-		};
+		var chartData = filterOverTimeData(data);
 
 		var ctx = $('#chart_incidents_time');
-		var chartIncidents = new Chart(ctx, {
+		chartIncidents = new Chart(ctx, {
 			type: 'line',
 			data: chartData,
 			options: {
@@ -337,11 +313,94 @@ $(function(){
 				if (last_incident_marker_clicked !== undefined) {
 					last_incident_marker_clicked.setRadius(4);	
 				}
+				var defaultChartData = filterOverTimeData(data);
+				chartIncidents.config.data = defaultChartData;
+				chartIncidents.update();
+				
 				return false;
 			});
 		}
 
 	}
+
+	function filterOverTimeData(originalData, filters={}) {
+		var yearFilter = filters.year,
+			onlyJuvenileFilter = filters.any_juvenile_victims;
+		// yearFilter expects either "" (blank) or "2012" (year)
+		// onlyJuvenileFilter is either blank or bool
+
+		var dateGroups,
+			final_labels = [],
+			final_values_all = [],
+			final_values_juvenile = [];
+
+		if (yearFilter === undefined || (typeof yearFilter === "string" && yearFilter.length === 0)) {
+			// blank -> all years
+			dateGroups = _.groupBy(originalData, function(incident) {
+				return incident.year;
+			});
+		} else {
+			var onlyYear = _.filter(originalData, function(incident) {
+				return incident.year == yearFilter;
+			});
+			dateGroups = _.groupBy(onlyYear, function(incident) {
+				return incident.year_month;
+			});
+		}
+
+		var overTimeData = _.mapObject(dateGroups, function(value, key) {
+			var count_all = value.length;
+			var count_juveniles = _.filter(value, function(incident) {
+				return incident.any_juvenile_victims;
+			}).length;
+
+			return {
+				all: count_all,
+				juveniles: count_juveniles
+			}
+		});
+
+		if (yearFilter === undefined || (typeof yearFilter === "string" && yearFilter.length === 0)) {
+			// blank -> all years
+			final_labels = _.map(overTimeData, function(value, key) { return key });
+		}
+		else {
+			final_labels = _.map(overTimeData, function(value, key) { 
+				return moment(key).format('MMM YYYY');
+			});
+		}
+		
+		var chartData = {
+			labels: final_labels,
+			datasets: []
+		};
+
+		final_values_juvenile = _.map(overTimeData, function(value, key) { return value.juveniles });
+		var juvenile_dataset = {
+			label: 'Gun violence incidents with juvenile victims',
+			backgroundColor: 'rgb(158, 29, 10)',
+			borderColor: 'rgb(131, 12, 0)',
+			borderWidth: 2,
+			fill: false,
+			data: final_values_juvenile
+		}
+		chartData.datasets.push(juvenile_dataset);
+
+		if (onlyJuvenileFilter === undefined || onlyJuvenileFilter === false) {
+			final_values_all = _.map(overTimeData, function(value, key) { return value.all });
+			var all_dataset = {
+				label: 'All gun violence incidents',
+				backgroundColor: '#999',
+				borderColor: '#888',
+				borderWidth: 2,
+				fill: false,
+				data: final_values_all
+			}
+			chartData.datasets.push(all_dataset);
+		}		
+
+		return chartData;
+	} 
 
 	function highlightIncident(opts) {
 		if (last_incident_marker_clicked !== undefined && last_incident_marker_clicked === opts.marker) {
