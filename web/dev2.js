@@ -39,9 +39,7 @@ $(function(){
 		header: true,
 		dynamicTyping: true,
 		complete: function(results) {
-			console.log(results)
 			var rawData = results.data;
-
 			var chartData = {
 				labels: [],
 				datasets: [
@@ -87,7 +85,6 @@ $(function(){
 		dynamicTyping: true,
 		complete: function(results) {
 			var rawData = results.data;
-
 			var chartData = {
 				labels: [],
 				datasets: [
@@ -148,6 +145,11 @@ $(function(){
 			map = opts.map;
 
 		var markers = [];
+
+		var month_year_hash = {},
+			month_year_labels = [],
+			month_year_values_all = [],
+			month_year_values_juvenile = [];
 
 		if (opts.toggle_el !== undefined && opts.toggle_class !== undefined) {
 			var toggle_el = opts.toggle_el,
@@ -221,6 +223,23 @@ $(function(){
 			var lat = incident.lat;
 			var lng = incident.lng;
 
+			var month_year = incident.year_month;
+
+			if (month_year_hash[month_year] === undefined) {
+				month_year_hash[month_year] = {};
+				month_year_hash[month_year].all = 1;
+				if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
+					month_year_hash[month_year].juveniles = 1;
+				} else {
+					month_year_hash[month_year].juveniles = 0;
+				}
+			} else {
+				month_year_hash[month_year].all += 1;
+				if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
+					month_year_hash[month_year].juveniles += 1;
+				}
+			}
+
 			if (typeof lat == 'string' && typeof lng == 'string') {
 				// (as long as they're not null)
 
@@ -253,14 +272,49 @@ $(function(){
 				marker.addTo(map);
 				markers.push(marker);
 
-				// if (yearLayers[incident.year] !== undefined) {
-				// 	yearLayers[incident.year].addLayer(marker);
-				// } else {
-				// 	yearLayers[incident.year] = L.layerGroup(marker);
-				// }
-
 			}
 		}
+
+		for (var month_year in month_year_hash) {
+			var values = month_year_hash[month_year];
+			month_year_labels.push(month_year);
+			month_year_values_all.push(values.all);
+			month_year_values_juvenile.push(values.juveniles);
+		}
+
+		console.log(month_year_labels, month_year_values_all, month_year_values_juvenile);
+
+		var chartData = {
+			labels: month_year_labels,
+			datasets: [
+				{
+					label: 'Gun violence incidents with juvenile victims',
+					backgroundColor: 'rgb(158, 29, 10)',
+					borderColor: 'rgb(131, 12, 0)',
+					borderWidth: 2,
+					data: month_year_values_juvenile
+				},
+				{
+					label: 'All gun violence incidents',
+					backgroundColor: 'rgb(0, 155, 255)',
+					borderColor: 'rgb(0, 119, 235)',
+					borderWidth: 2,
+					data: month_year_values_all
+				}
+			]
+		};
+
+		var ctx = $('#chart_incidents_time');
+		var chartIncidents = new Chart(ctx, {
+			type: 'line',
+			data: chartData,
+			options: {
+				legend: {
+					position: 'bottom'
+				}
+			}
+		});
+
 
 		if (opts.reset_btn !== undefined) {
 			var $resetBtn = $(opts.reset_btn);

@@ -1,4 +1,5 @@
 require 'json'
+require 'date'
 
 incidents_file = File.read('incidents_with_census_blocks.json')
 incidents_original = JSON.parse(incidents_file)
@@ -38,6 +39,9 @@ incidents_original.each do |incident_original|
 	end
 
 	incident['year'] = incident['date'].match(/, (\d{4})/)[1]
+
+	incident_date = Date.parse(incident['date'])
+	incident['year_month'] = "#{incident_date.year}-#{incident_date.month.to_s.rjust(2,'0')}"
 
 	puts incident
 	incidents << incident
