@@ -1,9 +1,10 @@
 require 'open-uri'
 require 'nokogiri'
 require 'json'
+require 'time'
 
-first_id = 2
-last_id = 776
+first_id = 777
+last_id = 781
 # last_id = .incident_list .incident a[href] /webapps/crime/:id/:slug
 
 ids = (first_id..last_id)
@@ -30,15 +31,25 @@ ids.each do |id|
 		incident[:date] = date_time.first
 		incident[:time] = date_time.last
 
+		time_obj = Time.parse("#{date_time.first} #{date_time.last}")
+		incident[:year] = time_obj.year
+		incident[:year_month] = "#{time_obj.year}-#{time_obj.month.to_s.rjust(2,'0')}"
+		incident[:iso8601] = time_obj.iso8601
+
 		incident[:summary] = doc.css('.inc_summary').first.text.strip
 		incident[:any_juvenile_victims] = false
 		incident[:any_juvenile_suspects] = false
+		incident[:any_juvenile_killed] = false
+		incident[:any_killed] = false
+		incident[:all_juvenile_victims_and_suspects] = false
 
 		victims = []
 		suspects = []
 
 		victims_p = doc.css('table td').first.css('p')
 		suspects_p = doc.css('table td').last.css('p')
+
+		
 
 		if victims_p.count >= 3
 			victims_p.each_slice(3) do |p1, p2, p3|
@@ -51,8 +62,15 @@ ids.each do |id|
 				victim[:killed] = p2.text.downcase.index("killed") != nil
 				victim[:about] = p3.text.strip
 
+				if victim[:killed]
+					incident[:any_killed] = true
+				end
+
 				if !victim[:age].nil? && victim[:age].to_i < 18
 					incident[:any_juvenile_victims] = true
+					if victim[:killed]
+						incident[:any_juvenile_killed] = true
+					end
 				end
 
 				victims << victim
@@ -76,6 +94,12 @@ ids.each do |id|
 
 				suspects << suspect
 			end
+		end
+
+		if victims.any? && suspects.any?
+			all_juvenile_victims = victims.map{ |p| p['age'].to_i < 18 }.all?
+			all_juvenile_suspects = suspects.map{ |p| p['age'].to_i < 18 }.all?
+			incident[:all_juvenile_victims_and_suspects] = all_juvenile_victims && all_juvenile_suspects
 		end
 
 		incident[:victims] = victims
@@ -103,7 +127,7 @@ ids.each do |id|
 	end
 end
 
-File.open('incidents.json', 'w') do |f|
+File.open('incidents_new.json', 'w') do |f|
 	f.puts JSON.pretty_generate(incidents)
 end
 puts "wrote file"

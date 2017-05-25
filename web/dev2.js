@@ -10,7 +10,7 @@ $(function(){
 		// $.getJSON('cb_2016_10_bg_500k.json', function(data) {
 		// 	census_blocks_geojson = data;
 		// }),
-		$.getJSON('incidents_juvenile_with_census_blocks_c.json', function(data) {
+		$.getJSON('incidents_juvenile_with_census_blocks.json', function(data) {
 			incidents_data = data;
 		})
 		// $.getJSON('tracts_years_diff.json', function(data) {
@@ -18,7 +18,7 @@ $(function(){
 		// })
 	).then(function() {
 		if (incidents_data) {
-			
+
 			$('#loading').hide();
 			$('.is_loading').css('opacity', 1).removeClass('is_loading');
 

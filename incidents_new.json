@@ -1,0 +1,141 @@
+[
+  {
+    "id": 777,
+    "title": "N. Rodney St. shooting injures man",
+    "location": "In the area of 400 N. Rodney St., Wilmington, DE 19805",
+    "date": "May 17, 2017",
+    "time": "11:30 p.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-17T23:30:00-04:00",
+    "summary": "A 29-year-old man is in stable condition following a shooting Wednesday night.  \n\nA K-9 officer was patrolling in the area of 4th and Rodney streets at about 11:30 p.m. when he reported hearing gunfire in the area.  \n\nOfficers found the victim in the 400 block of N. Rodney St. with a gunshot wound to his right leg",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": false,
+        "name": "Unidentfied Man",
+        "age": "29",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.566441",
+    "lat": "39.746922"
+  },
+  {
+    "id": 778,
+    "title": "Man dies following Claymont St. shooting",
+    "location": "In the area of 2400 N. Claymont St, Wilmington, DE 19802",
+    "date": "May 18, 2017",
+    "time": "9 p.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-18T21:00:00-04:00",
+    "summary": "At about 9 p.m., the city's Shot Spotter technology alerted police to a shooting in the 2400 block of Claymont St.  \n\nThere, police found Sherman Pride, 22, suffering from a gunshot wound to the upper body. He was rushed to Christiana Hospital where he was admitted in extremely critical condition.  Police said a day later that he died from his injury.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": true,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": false,
+        "name": "Sherman Pride",
+        "age": "22",
+        "status": "Pride was killed during the incident.",
+        "killed": true,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.528053",
+    "lat": "39.747926"
+  },
+  {
+    "id": 779,
+    "title": "Man found shot on porch",
+    "location": "In the area of W. 6th St. &amp; N. West St., Wilmington, DE 19801",
+    "date": "May 22, 2017",
+    "time": "10:38 a.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-22T10:38:00-04:00",
+    "summary": "At about 10:38 a.m., officer's responded to a home located in the 400 block of W. 7th Street in reference to a shooting investigation.   \n\nThere, they found a 35-year-old man suffering from a gunshot to his torso area. The victim was taken to Christiana Hospital and is listed in stable condition. \n\nThe preliminary investigation indicated the shooting occurred in the area of W. 6th and N. West streets, however no shooting scene could be located.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": true,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "35",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+      {
+        "unidentified": false,
+        "name": "Keenan Anderson",
+        "age": "25",
+        "status": "Anderson was arrested on May 23, 2017.",
+        "arrest_date": "May 23, 2017",
+        "about": "Detectives determined that Keenan Anderson, 25, of Wilmington, was developed as a suspect in the shooting investigation from 6th and N. West Street  on May 22, 2017. Arrest warrants were ultimately approved for Anderson on May 23, 2017 for the charges of Assault in the 1st Degree, Possession of a Firearm by a Person Prohibited, Robbery 1st Degree, Possession of a Firearm During the Commission of a Felony.\r\rOn May 23, at about 3:30 p.m., police located Anderson in the 500 block of W. 7th Street and took him into custody without incident. Anderson was committed to the Howard Young Correctional Facility in lieu of $230,000 cash bail."
+      }
+    ],
+    "images": [
+      {
+        "src": "http://data.delawareonline.com/webapps/media/suspect_photos/KeenanAnderson_25.jpg.300x400_q85_crop_detail.jpg",
+        "name": "Keenan Anderson"
+      }
+    ],
+    "lng": "-75.553269",
+    "lat": "39.743136"
+  },
+  {
+    "id": 781,
+    "title": "Man shot in Hedgeville",
+    "location": "In the area of 1200 block of Elm St., Wilmington, DE 19805",
+    "date": "May 24, 2017",
+    "time": "10:30 a.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-24T10:30:00-04:00",
+    "summary": "Officers responding to a shooting in the Hedgeville neighborhood found a man in his 20s suffering from a wound to his upper leg.\n\nResidents in the 1200 block of Elm St. and surrounding streets reported hearing gunshots and seeing someone on the ground bleeding. \n\nThe victim was treated on scene by New Castle County Paramedics and taken to Christiana Hospital.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.565899",
+    "lat": "39.741129"
+  }
+]
