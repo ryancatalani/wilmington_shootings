@@ -45,20 +45,31 @@ $(function(){
 				datasets: [
 					{
 						label: 'Teen gun violence incidents per 10,000 people',
-						backgroundColor: 'rgb(116, 23, 132)',
-						borderWidth: 0,
+						backgroundColor: [],
+						borderWidth: [],
+						borderColor: 'rgb(116, 23, 132)',
 						data: []
 					}
 				]
 			};
 
-			var citiesToInclude = 10;
+			var citiesToInclude = 11;
 			var multiplier = 10000;
 			var precision = 10;
+			var cityIndex = 1;
 			for (var i = 0; i < citiesToInclude; i++) {
 				var cityData = rawData[i];
-				var position = i+1;
-				var name = '#' + position + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
+				
+				if (cityData.city != 'Chicago') {
+					var name = '#' + cityIndex + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
+					cityIndex += 1;
+					chartData.datasets[0].borderWidth.push(0);
+					chartData.datasets[0].backgroundColor.push('rgb(116, 23, 132)');
+				} else {
+					var name = cityData.city + ', ' + stateNameToAbbr(cityData.state) + '*';
+					chartData.datasets[0].borderWidth.push(2);
+					chartData.datasets[0].backgroundColor.push('rgba(116, 23, 132, 0.3)');
+				}
 				var percapita = cityData.teen_incidents_tot_per_capita;
 				var perpop = Math.round(percapita * multiplier * precision) / precision;
 

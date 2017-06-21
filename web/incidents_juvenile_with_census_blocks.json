@@ -29046,5 +29046,335 @@
     ],
     "lng": "-75.565899",
     "lat": "39.741129"
+  },
+  {
+    "id": 781,
+    "title": "Man shot in Hedgeville",
+    "location": "In the area of 1200 block of Elm St., Wilmington, DE 19805",
+    "date": "May 24, 2017",
+    "time": "10:30 a.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-24T10:30:00-04:00",
+    "summary": "Officers responding to a shooting in the Hedgeville neighborhood found a man in his 20s suffering from a wound to his upper leg.\n\nResidents in the 1200 block of Elm St. and surrounding streets reported hearing gunshots and seeing someone on the ground bleeding. The victim was treated on scene by New Castle County Paramedics and taken to Christiana Hospital, where he died Thursday.\n\nThe victim was identified as Shamar Lindsay, 25, of Wilmington.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": true,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": false,
+        "name": "Shamar  Lindsay",
+        "age": "25",
+        "status": "Lindsay was killed during the incident.",
+        "killed": true,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.565899",
+    "lat": "39.741129"
+  },
+  {
+    "id": 782,
+    "title": "Three shot in Hilltop",
+    "location": "In the area of 200 block of N. DuPont St., Wilmington, DE 19805",
+    "date": "May 26, 2017",
+    "time": "10:25 p.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-26T22:25:00-04:00",
+    "summary": "Three men were injured, two critically, following a shooting Friday night in Wilmington's Hilltop neighborhood. \n\nOfficers responding to the 200 block of N. DuPont St. in reference to a shooting found a 60-year-old man in 1700 block of W. Third St. suffering from an apparent gunshot wound to his right arm. Assisting officers were directed to St. Francis Hospital where two additional gunshot victims arrived via personal vehicles, police said.\n\nOne man, a 46-year-old, was suffering from gunshot wounds to his upper torso. The other victim, a 25-year-old man, was also suffering from gunshot wounds to his upper torso.\n\nBoth those victims were described as being in critical but stable condition, Janvier said. The older victim was reported to be stable.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "60",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "46",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "25",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.570493",
+    "lat": "39.746174"
+  },
+  {
+    "id": 783,
+    "title": "Two shot, including 14-year-old girl",
+    "location": "In the area of 600 block of N. Harrison St., Wilmington, DE 19805",
+    "date": "May 28, 2017",
+    "time": "8 p.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-28T20:00:00-04:00",
+    "summary": "Man and girl were caught in a barrage of gunfire, at least 10 bullets according to witnesses.\n\nOfficers responding to the 600 block of N. Harrison St. found a 38-year-old man with apparent gunshot wounds to his extremities. A 14-year-old girl, who was with him, also was shot in her lower extremities, police said.  \n\nBoth victims were treated at the scene by New Castle County paramedics and transported to the Christiana Hospital for further treatment and are considered to be in stable condition, police said.",
+    "any_juvenile_victims": true,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "38",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Girl",
+        "age": "14",
+        "status": "The unidentified girl was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.561689",
+    "lat": "39.746640"
+  },
+  {
+    "id": 784,
+    "title": "Man shot in Brandywine Village neighborhood",
+    "location": "In the area of 2100 block of Washington St., Wilmington, DE 19802",
+    "date": "May 30, 2017",
+    "time": "1:30 p.m.",
+    "year": 2017,
+    "year_month": "2017-05",
+    "iso8601": "2017-05-30T13:30:00-04:00",
+    "summary": "A 23-year-old man was shot early Tuesday afternoon on the steps leading to a home in the 2100 block of Washington St. in Wilmington.\n\nThe victim was taken to Christiana Hospital in stable condition, police said. \n\nNeighbors said they heard at least four gunshots about 1:30 p.m. At least that many bullet casings were visible on the steps.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "23",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.542683",
+    "lat": "39.755008"
+  },
+  {
+    "id": 785,
+    "title": "Man, 40, shot in torso",
+    "location": "In the area of E 24th St. and Lamotte St., Wilmington, DE 19802",
+    "date": "June 2, 2017",
+    "time": "4:15 a.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-02T04:15:00-04:00",
+    "summary": "Police were called to a home in the 2300 block of Carter St. in reference to a shooting. \n\nThere, officer's located a 40-year-old man suffering from an apparent gunshot wound to his torso. The victim was treated on scene by New Castle County Paramedics and transported to the Christiana Hospital Emergency Room in stable condition. \n\nThe preliminary investigation indicate the incident happened in the area of 24th and Lamottte streets, however  no ShotSpotter notification and no additional calls in reference to a shooting were received.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "40",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.536546",
+    "lat": "39.752868"
+  },
+  {
+    "id": 786,
+    "title": "Man shot multiple times in Hilltop",
+    "location": "In the area of 200 block of N. Rodney St., Wilmington, DE 19805",
+    "date": "June 3, 2017",
+    "time": "12:05 a.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-03T00:05:00-04:00",
+    "summary": "Officers in the area of West Second and North Rodney streets were flagged down for a possible shooting victim in the 200 block of N. Rodney St., according to police.\n\nThere officers found a 33-yer-old man suffering from gunshot wounds to his left arm and left leg, police said. He was treated at the scene by New Castle County Paramedics before being taken to Christiana Hospital in stable condition.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "33",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.567601",
+    "lat": "39.745294"
+  },
+  {
+    "id": 787,
+    "title": "Man arrives at hospital after being shot",
+    "location": "In the area of 900 block of Kirkwood St., Wilmington, DE 19801",
+    "date": "June 3, 2017",
+    "time": "5:35 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-03T17:35:00-04:00",
+    "summary": "A man was recovering Saturday after being shot multiple times on Wilmington's East Side, police said. \n\nCity officers responded to the 900 block of Kirkwood St. about 5:35 p.m. following a ShotSpotter notification of gunfire, police said. Officers arrived at the scene, but did not find a victim. \n\nShortly thereafter, police learned a 32-year-old man arrived at Wilmington Hospital by a personal vehicle. He was suffering from gunshot wounds to his arm and leg.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "32",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.541508",
+    "lat": "39.741954"
+  },
+  {
+    "id": 788,
+    "title": "Man critically wounded in Monday shooting",
+    "location": "In the area of 1600 block of N. Pine St., Wilmington, DE 19801",
+    "date": "June 5, 2017",
+    "time": "9:05 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-05T21:05:00-04:00",
+    "summary": "Officers responded to the 1600 block of N. Pine St. after a ShotSpotter notification was issued about 9:05 p.m., according to police. \n\nArriving officers found a 46-year-old man suffering from two apparent gunshot wounds: one wound was to the torso area, the other was to his arm.\n\nThe man was treated by New Castle County Paramedics before he was taken to Christiana Hospital in critical condition.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "46",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.540129",
+    "lat": "39.745194"
+  },
+  {
+    "id": 789,
+    "title": "Six-year-old son shot",
+    "location": "In the area of 700 block of E. Sixth St., Wilmington, DE 19801",
+    "date": "June 6, 2017",
+    "time": "2:35 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-06T14:35:00-04:00",
+    "summary": "A 6-year-old boy was critically wounded after being shot in the head during a daytime shooting in Wilmington's East Side neighborhood. \n\nThe child was riding in his 31-year-old mother's vehicle at the time of the shooting. \n\nPolice found them in the 700 block of E. Sixth St. and transported the child to Nemours Alfred I. duPont Hospital for Children and the woman to St. Francis Hospital.",
+    "any_juvenile_victims": true,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Boy",
+        "age": "6",
+        "status": "The unidentified boy was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.542907",
+    "lat": "39.738690"
   }
 ]
