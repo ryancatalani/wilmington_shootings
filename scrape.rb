@@ -3,12 +3,13 @@ require 'nokogiri'
 require 'json'
 require 'time'
 
-first_id = 789
+first_id = 2
 last_id = 796
 # last_id = .incident_list .incident a[href] /webapps/crime/:id/:slug
 
 ids = (first_id..last_id)
 incidents = []
+errors = []
 
 ids.each do |id|
 
@@ -57,7 +58,11 @@ ids.each do |id|
 				name_age = p1.text.strip.split(',')
 				victim[:unidentified] = p1.text.downcase.index("unidentified") != nil
 				victim[:name] = name_age.first.strip
-				victim[:age] = name_age.last.strip rescue nil
+				if name_age.count > 1
+					victim[:age] = name_age.last.strip rescue nil
+				else
+					victim[:age] = nil
+				end
 				victim[:status] = p2.text.strip
 				victim[:killed] = p2.text.downcase.index("killed") != nil
 				victim[:about] = p3.text.strip
@@ -83,7 +88,11 @@ ids.each do |id|
 				name_age = p1.text.strip.split(',')
 				suspect[:unidentified] = p1.text.downcase.index("unidentified") != nil
 				suspect[:name] = name_age.first.strip
-				suspect[:age] = name_age.last.strip rescue nil
+				if name_age.count > 1
+					suspect[:age] = name_age.last.strip rescue nil
+				else
+					suspect[:age] = nil
+				end
 				suspect[:status] = p2.text.strip # charged date
 				suspect[:arrest_date] = p2.text.strip.split('arrested on').last.strip.chomp('.')
 				suspect[:about] = p3.text.strip # charged with
@@ -97,8 +106,8 @@ ids.each do |id|
 		end
 
 		if victims.any? && suspects.any?
-			all_juvenile_victims = victims.map{ |p| p['age'].to_i < 18 }.all?
-			all_juvenile_suspects = suspects.map{ |p| p['age'].to_i < 18 }.all?
+			all_juvenile_victims = victims.map{ |p| p[:age].nil? ? false : p[:age].to_i < 18 }.all?
+			all_juvenile_suspects = suspects.map{ |p| p[:age].nil? ? false : p[:age].to_i < 18 }.all?
 			incident[:all_juvenile_victims_and_suspects] = all_juvenile_victims && all_juvenile_suspects
 		end
 
@@ -120,6 +129,7 @@ ids.each do |id|
 		incidents << incident
 
 	rescue => error
+		errors << id
 		puts "ID #{id} had an error"
 		p error
 		p $!.backtrace
@@ -130,4 +140,5 @@ end
 File.open('incidents_new.json', 'w') do |f|
 	f.puts JSON.pretty_generate(incidents)
 end
-puts "wrote file"
+puts "errors on IDs #{errors.join(', ')}"
+puts "wrote file (incidents count: #{incidents.count})"
