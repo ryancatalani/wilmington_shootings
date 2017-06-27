@@ -29376,5 +29376,259 @@
     ],
     "lng": "-75.542907",
     "lat": "39.738690"
+  },
+  {
+    "id": 790,
+    "title": "Man, 24 shot in Ninth Ward Area",
+    "location": "In the area of 300 block of W. 29th St., Wilmington, DE 19802",
+    "date": "June 13, 2017",
+    "time": "9:40 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-13T21:40:00-04:00",
+    "summary": "A 24-year-old man was shot in Wilmington's Ninth Ward Area. \n\nOfficers were called to the 300 block of W. 29th St. for a report of shots fired about 9:40 p.m., police said. Responding officers found the victim in the 400 block of W. 29th St. He'd been shot in his lower back and buttocks, an official said.\n\nThe man was taken to Christiana Hospital, where he was reported to be stable, an official said.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "24",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.535664",
+    "lat": "39.758726"
+  },
+  {
+    "id": 791,
+    "title": "Two women shot in Hedgeville neighborhood",
+    "location": "In the area of 1100 block of Read St., Wilmington, DE 19805",
+    "date": "June 13, 2017",
+    "time": "11:15 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-13T23:15:00-04:00",
+    "summary": "Two women were struck by gunfire in Wilmington's Hedgeville neighborhood. \n\nMultiple emergency responders were called to the 1100 block of Read St. about 11:15 p.m., police said. \n\nThe victims were sitting on the steps of a home when the gunfire erupted, sticking a 40-year-old woman in the upper right leg. She was taken to Christiana Hospital and is listed in stable condition.\n\nThe other victim, a 33-year-old woman, suffered a graze wound to her head. She's also in stable condition at Christiana Hospital.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Woman",
+        "age": "40",
+        "status": "The unidentified woman was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Woman",
+        "age": "33",
+        "status": "The unidentified woman was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.563805",
+    "lat": "39.741920"
+  },
+  {
+    "id": 792,
+    "title": "Man, 34, critically wounded in Hilltop",
+    "location": "In the area of 200 block of N. Lincoln St., Wilmington, DE 19805",
+    "date": "June 14, 2017",
+    "time": "11 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-14T23:00:00-04:00",
+    "summary": "A 34-year-old man was critically injured following a shooting late Wednesday night in Wilmington's Hilltop neighborhood. \n\nInvestigators found the victim sitting on the steps of a home in the 200 block of N. Lincoln St. just after 11 p.m., an official said. He was wounded in the chest, right arm and lower right leg.  \n\nHe was rushed by paramedics to Christiana Hospital for treatment, an official said.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "34",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.572544",
+    "lat": "39.747309"
+  },
+  {
+    "id": 793,
+    "title": "Two shot in West Center City",
+    "location": "In the area of 400 block of W. Seventh St., Wilmington, DE 19801",
+    "date": "June 18, 2017",
+    "time": "1:40 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-18T13:40:00-04:00",
+    "summary": "A man and woman were shot Sunday on West Seventh Street.\n\nShotspotter alerted police to five shots fired in the 400 block of W. Seventh St. about 1:40 p.m. Officers at the scene found two gunshot victims, a 45-year-old man, who'd been shot in the ankle and groin and a 31-year-old black woman, who was grazed on the ankle. \n\nBoth were treated on scene by paramedics and taken to Christiana Hospital.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "45",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": "Man shot in ankle and groin."
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Woman",
+        "age": "31",
+        "status": "The unidentified woman was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.553356",
+    "lat": "39.743874"
+  },
+  {
+    "id": 794,
+    "title": "Man, 45, found laying on curb",
+    "location": "In the area of 2900 block of Tatnall St., 2900 Tatnall St, Wilmington, DE 19802",
+    "date": "June 21, 2017",
+    "time": "10:40 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-21T22:40:00-04:00",
+    "summary": "A 45-year-old man was found shot in Wilmington's Ninth Ward area, police reported. \n\nOfficers responded around 10:40 p.m. to the 2900 block of Tatnall St. in regard to a possible shooting victim. Arriving officers found a man laying on the curb suffering from a gunshot wound to his chest area, police said. The victim was treated on scene by New Castle County Paramedics and taken to Christiana Hospital where he was reported to be stable, police said. \n\nPreliminary investigation reveals that the victim was involved in a verbal argument just prior to the shooting, police said.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "45",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.533846",
+    "lat": "39.756584"
+  },
+  {
+    "id": 795,
+    "title": "Propation officer grazed by bullet",
+    "location": "In the area of 2700 block of Thompson Place, Wilmington, DE 19802",
+    "date": "June 23, 2017",
+    "time": "10:30 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-23T22:30:00-04:00",
+    "summary": "A Probation and Parole Officer, who was working with Wilmington Police in the Ninth Ward area was grazed by a bullet. \n\nThe officers were conducting an investigation in the 2700 block of Thompson Place about 10:30 p.m. when they heard gun shots in the area. Police on scene reported that one Probation and Parole officer had sustained a graze wound. \n\nThe officer was taken to Christiana Hospital, where he was treated and released.",
+    "any_juvenile_victims": true,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "Unidentified Man",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.537231",
+    "lat": "39.758055"
+  },
+  {
+    "id": 796,
+    "title": "Person shot in Judy Johnson Park",
+    "location": "In the area of 1600 block of W. Third St., Wilmington, DE 19805",
+    "date": "June 25, 2017",
+    "time": "5:20 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-25T17:20:00-04:00",
+    "summary": "Wilmington police are investigating a shooting that occurred in Judy Johnson Park. \n\nPolice responded to the 1600 block of W. Third St. for a Shot Spotter alert for seven rounds fired within Judy Johnson Park near the basketball court. Arriving officers were told someone had been hit by gunfire, then fled on foot to St. Francis Hospital. \n\nThe victim was hit once in his right bicep, police said.",
+    "any_juvenile_victims": true,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "Unidentified Man",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.568542",
+    "lat": "39.746668"
   }
 ]
