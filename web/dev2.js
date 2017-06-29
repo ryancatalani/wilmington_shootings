@@ -34,7 +34,7 @@ $(function(){
 		}
 	});
 
-	Papa.parse('incident_counts_city_percapita.csv', {
+	Papa.parse('incident_counts_midsizecity_percapita.csv', {
 		download: true,
 		header: true,
 		dynamicTyping: true,
@@ -53,7 +53,7 @@ $(function(){
 				]
 			};
 
-			var citiesToInclude = 11;
+			var citiesToInclude = 6;
 			var multiplier = 10000;
 			var precision = 10;
 			var cityIndex = 1;
@@ -84,6 +84,13 @@ $(function(){
 				options: {
 					legend: {
 						position: 'bottom'
+					},
+					scales: {
+						xAxes: [{
+							ticks: {
+								min: 0
+							}
+						}]
 					}
 				}
 			});
