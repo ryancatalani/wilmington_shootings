@@ -310,6 +310,13 @@ $(function(){
 							return (legendItem.text.indexOf('ongoing') == -1);
 						}
 					}
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							min: 0
+						}
+					}]
 				}
 			}
 		});
