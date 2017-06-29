@@ -419,7 +419,19 @@ $(function(){
 			var length = final_values_juvenile.length;
 			var last_value = final_values_juvenile.pop();
 			var last_discontinuous_juvenile = Array(length-1);
-			last_discontinuous_juvenile.push(last_value);
+
+			// MANUALLY CHANGE VALUE FOR 2017 TO 13
+			// 
+			// UNCOMMENT TO GO BACK TO FULL AUTO
+			// last_discontinuous_juvenile.push(last_value);
+			//
+			// DELETE THIS IF/ELSE
+			if (!viewAllYears) {
+				last_discontinuous_juvenile.push(last_value);
+			} else {
+				last_discontinuous_juvenile.push(13);
+			}
+			// END MANUAL
 
 			var last_disconunuous_juvenile_dataset = {
 				label: 'Gun violence incidents with juvenile victims (ongoing)',
