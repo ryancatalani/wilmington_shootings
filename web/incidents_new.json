@@ -28844,5 +28844,39 @@
     ],
     "lng": "-75.568542",
     "lat": "39.746668"
+  },
+  {
+    "id": 797,
+    "title": "Man shot in Wilmington during robbery attempt",
+    "location": "In the area of W. 9th and N. Jefferson streets, Wilmington, DE 19801",
+    "date": "June 28, 2017",
+    "time": "8:25 p.m.",
+    "year": 2017,
+    "year_month": "2017-06",
+    "iso8601": "2017-06-28T20:25:00-04:00",
+    "summary": "Wilmington police said a 40-year-old man was shot Wednesday as part of a robbery attempt.\n\nAround 8:30 p.m., police responded to St. Francis Hospital and found the man with a gunshot wound on his hand. The victim told police he was shot in a robbery attempt around 9th and Jefferson streets.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "40",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.553469",
+    "lat": "39.746754"
   }
 ]

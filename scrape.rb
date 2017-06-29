@@ -3,8 +3,8 @@ require 'nokogiri'
 require 'json'
 require 'time'
 
-first_id = 2
-last_id = 796
+first_id = 704
+last_id = 797
 # last_id = .incident_list .incident a[href] /webapps/crime/:id/:slug
 
 ids = (first_id..last_id)
@@ -49,8 +49,6 @@ ids.each do |id|
 
 		victims_p = doc.css('table td').first.css('p')
 		suspects_p = doc.css('table td').last.css('p')
-
-		
 
 		if victims_p.count >= 3
 			victims_p.each_slice(3) do |p1, p2, p3|
