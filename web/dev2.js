@@ -7,15 +7,9 @@ $(function(){
 
 	var incidents_data;
 	$.when(
-		// $.getJSON('cb_2016_10_bg_500k.json', function(data) {
-		// 	census_blocks_geojson = data;
-		// }),
 		$.getJSON('incidents_new.json', function(data) {
 			incidents_data = data;
 		})
-		// $.getJSON('tracts_years_diff.json', function(data) {
-		// 	tracts_years_diff = data;
-		// })
 	).then(function() {
 		if (incidents_data) {
 
@@ -138,22 +132,10 @@ $(function(){
 	function createMap(elementID) {
 		var map = L.map(elementID).setView([39.745833, -75.546667], 13);
 
-		// var Hydda_Base = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
-		// 	maxZoom: 18,
-		// 	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		// }).addTo(map);
-		// // https: also suppported.
-	
-
 		var Esri_WorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 			attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
 			maxZoom: 16
 		}).addTo(map);
-
-		// var Hydda_RoadsAndLabels = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
-		// 	maxZoom: 18,
-		// 	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		// }).addTo(map);
 
 		return map;
 	}
@@ -164,8 +146,6 @@ $(function(){
 
 		var markers = [];
 		var chartIncidents;
-
-		// var over_time_hash = {};
 
 		if (opts.toggle_el !== undefined && opts.toggle_class !== undefined) {
 			var toggle_el = opts.toggle_el,
@@ -187,7 +167,6 @@ $(function(){
 							filterOptions[toToggle] = toggleOption;
 						}
 					});
-					// console.log(filterOptions);
 
 					var filteredIDs = [];
 
@@ -237,29 +216,10 @@ $(function(){
 			});
 		}
 
-		// var yearLayers = {};
-
 		for (var i = 0; i < data.length; i++) {
 			var incident = data[i];
 			var lat = incident.lat;
 			var lng = incident.lng;
-
-			// var increment = incident.year;
-
-			// if (over_time_hash[increment] === undefined) {
-			// 	over_time_hash[increment] = {};
-			// 	over_time_hash[increment].all = 1;
-			// 	if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
-			// 		over_time_hash[increment].juveniles = 1;
-			// 	} else {
-			// 		over_time_hash[increment].juveniles = 0;
-			// 	}
-			// } else {
-			// 	over_time_hash[increment].all += 1;
-			// 	if (incident.any_juvenile_victims || incident.any_juvenile_killed) {
-			// 		over_time_hash[increment].juveniles += 1;
-			// 	}
-			// }
 
 			if (typeof lat == 'string' && typeof lng == 'string') {
 				// (as long as they're not null)
@@ -531,28 +491,6 @@ $(function(){
 		} else {
 			$('#desc_victims').html('<li>No victims identified</li>');
 		}
-
-		// if (incident.suspects.length > 0) {
-		// 	var els = [];
-		// 	for (var i = 0; i < incident.suspects.length; i++) {
-		// 		var suspect = incident.suspects[i];
-		// 		var text = suspect.name;
-		// 		if (suspect.age && suspect.age.length > 0) {
-		// 			text += ', ' + suspect.age;
-		// 		}
-		// 		if (suspect.arrest_date && suspect.arrest_date.length > 0) {
-		// 			text += ', arrested on ' + suspect.arrest_date;
-		// 		}
-		// 		if (suspect.about && suspect.about.length > 0) {
-		// 			text += ': ' + suspect.about;
-		// 		}
-		// 		var el = $('<li></li>').text(text);
-		// 		els.push(el);
-		// 	};
-		// 	$('#desc_suspects').html(els);
-		// } else {
-		// 	$('#desc_suspects').html('<li>No suspects identified</li>');
-		// }
 
 		if (last_incident_marker_clicked !== undefined) {
 			last_incident_marker_clicked.setRadius(4);
