@@ -3,8 +3,8 @@ require 'nokogiri'
 require 'json'
 require 'time'
 
-first_id = 704
-last_id = 797
+first_id = 797
+last_id = 814
 # last_id = .incident_list .incident a[href] /webapps/crime/:id/:slug
 
 ids = (first_id..last_id)
@@ -138,5 +138,5 @@ end
 File.open('incidents_new.json', 'w') do |f|
 	f.puts JSON.pretty_generate(incidents)
 end
-puts "errors on IDs #{errors.join(', ')}"
+puts "errors on IDs #{errors.join(', ')}" if errors.any?
 puts "wrote file (incidents count: #{incidents.count})"
