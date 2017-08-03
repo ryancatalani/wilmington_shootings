@@ -24,8 +24,9 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest(styleDest));
 });
 
-var devFiles = [
+var devFullFileList = [
 	'src/partials/dev_header.html',
+	'src/partials/title.html',
 	'src/partials/graphic_map.html',
 	'src/partials/graphic_cities.html',
 	'src/partials/graphic_juveniles.html',
@@ -33,11 +34,26 @@ var devFiles = [
 ];
 
 gulp.task('createDev', function() {
-	return gulp.src(devFiles)
+	return gulp.src(devFullFileList)
 		.pipe(concat('dev2.html'))
 		.pipe(gulp.dest(''))
-})
+});
+
+var prodFullFileList = [
+	'src/partials/prod_header.html',
+	'src/partials/title.html',
+	'src/partials/graphic_map.html',
+	'src/partials/graphic_cities.html',
+	'src/partials/graphic_juveniles.html',
+	'src/partials/prod_footer.html'
+];
+
+gulp.task('createProd', function() {
+	return gulp.src(prodFullFileList)
+		.pipe(concat('production.html'))
+		.pipe(gulp.dest(''))
+});
 
 
 
-gulp.task('default', ['js', 'styles']);
+gulp.task('default', ['js', 'styles', 'createProd']);
