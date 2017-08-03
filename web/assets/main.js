@@ -919,7 +919,10 @@ $(function(){
 
 	}
 
-	function filterOverTimeData(originalData, filters={}) {
+	function filterOverTimeData(originalData, filters) {
+
+		filters = typeof filters !== 'undefined' ? filters : {};
+
 		var yearFilter = filters.year,
 			onlyJuvenileFilter = filters.any_juvenile_victims;
 		// yearFilter expects either "" (blank) or "2012" (year)
@@ -1121,7 +1124,10 @@ $(function(){
 
 	}
 
-	function addWilmingtonBoundsToMaps(all_maps, opts={}) {
+	function addWilmingtonBoundsToMaps(all_maps, opts) {
+
+		opts = typeof opts !== 'undefined' ? opts : {};
+
 		$.getJSON('assets/data/wilmington_bounds_topo.json', function(bounds_data) {
 
 			for (var i = 0; i < all_maps.length; i++) {
