@@ -40,8 +40,7 @@ $(function(){
 					{
 						label: 'Teen gun violence incidents per 10,000 people',
 						backgroundColor: [],
-						borderWidth: [],
-						borderColor: 'rgb(116, 23, 132)',
+						borderWidth: 0,
 						data: []
 					}
 				]
@@ -57,12 +56,10 @@ $(function(){
 				if (cityData.city != 'Chicago') {
 					var name = '#' + cityIndex + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
 					cityIndex += 1;
-					chartData.datasets[0].borderWidth.push(0);
-					chartData.datasets[0].backgroundColor.push('rgb(116, 23, 132)');
+					chartData.datasets[0].backgroundColor.push('#1b9cfa');
 				} else {
 					var name = cityData.city + ', ' + stateNameToAbbr(cityData.state) + '*';
-					chartData.datasets[0].borderWidth.push(2);
-					chartData.datasets[0].backgroundColor.push('rgba(116, 23, 132, 0.3)');
+					chartData.datasets[0].backgroundColor.push('#abdcfb');
 				}
 				var percapita = cityData.teen_incidents_tot_per_capita;
 				var perpop = Math.round(percapita * multiplier * precision) / precision;
@@ -84,6 +81,11 @@ $(function(){
 							ticks: {
 								min: 0
 							}
+						}],
+						yAxes: [{
+							gridLines: {
+								display: false
+							}
 						}]
 					}
 				}
@@ -102,9 +104,8 @@ $(function(){
 				datasets: [
 					{
 						label: 'Juveniles charged with gang participation',
-						backgroundColor: 'rgba(116, 23, 132, 0.5)',
-						borderColor: 'rgb(116, 23, 132)',
-						borderWidth: 2,
+						backgroundColor: '#1b9cfa',
+						borderWidth: 0,
 						data: []
 					}
 				]
@@ -123,6 +124,13 @@ $(function(){
 				options: {
 					legend: {
 						position: 'bottom'
+					},
+					scales: {
+						xAxes: [{
+							gridLines: {
+								display: false
+							}
+						}]
 					}
 				}
 			});
@@ -235,7 +243,7 @@ $(function(){
 				if (incident.any_juvenile_killed) {
 					markerOptions.color = '#B50E00';
 				} else if (incident.any_juvenile_victims) {
-					markerOptions.color = '#0082FF';
+					markerOptions.color = '#1b9cfa';
 				} else {
 					markerOptions.color = '#999';
 				}
@@ -275,6 +283,11 @@ $(function(){
 					yAxes: [{
 						ticks: {
 							min: 0
+						},
+					}],
+					xAxes: [{
+						gridLines: {
+							display: false
 						}
 					}]
 				}
