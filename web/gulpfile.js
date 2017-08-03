@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var headerfooter = require('gulp-headerfooter');
 
 var jsFiles = ['src/js/libs/*.js', 'src/js/dev2.js'],
     jsDest = 'assets';
@@ -50,9 +51,22 @@ var prodFullFileList = [
 
 gulp.task('createProd', function() {
 	return gulp.src(prodFullFileList)
-		.pipe(concat('production.html'))
+		.pipe(concat('graphics_all.html'))
 		.pipe(gulp.dest(''))
 });
+
+var graphicsFiles = [
+	'src/partials/graphic_map.html',
+	'src/partials/graphic_cities.html',
+	'src/partials/graphic_juveniles.html'
+];
+
+gulp.task('createIndivFiles', function() {
+	return gulp.src(graphicsFiles)
+		.pipe(headerfooter.header('src/partials/prod_header.html'))
+		.pipe(headerfooter.footer('src/partials/prod_footer.html'))
+		.pipe(gulp.dest(''))
+})
 
 
 

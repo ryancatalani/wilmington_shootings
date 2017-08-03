@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wilmington Shootings</title>
+
+	<link rel="stylesheet" href="assets/main.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<div class="wrap"><div id="graphic_map">
+	<div class="row">
+		<h2>Explore gun violence in Wilmington</h2>
+		<div class="explain">
+			Filter the data using the buttons below, and click on the map to read about individual gun violence incidents.
+		</div>
+	</div>
+
+	<div class="row is_loading">
+		<ul id="year_toggle" class="toggle" data-toggle="year">
+			<li data-toggle-option="" class="selected">All years</li>
+			<li data-toggle-option="2011">2011</li>
+			<li data-toggle-option="2012">’12</li>
+			<li data-toggle-option="2013">’13</li>
+			<li data-toggle-option="2014">’14</li>
+			<li data-toggle-option="2015">’15</li>
+			<li data-toggle-option="2016">’16</li>
+			<li data-toggle-option="2017">’17</li>
+		</ul>
+		<ul id="juvenile_toggle" class="toggle" data-toggle="any_juvenile_victims">
+			<li data-toggle-option="" class="selected">All shootings</li>
+			<li data-toggle-option="true">Only shootings with juvenile victims</li>
+		</ul>
+	</div>
+	<div class="row is_loading">
+		<div class="map_control_btn" id="map_dots_reset">Reset chart and map</div>
+	</div>
+
+	<div class="row is_loading">
+		<canvas class="chart" id="chart_incidents_time"></canvas>
+	</div>
+
+	<div class="row" id="incidents_map_core">
+		<div id="loading"><span class="spinner"></span> LOADING...</div>
+
+		<div id="map_dots" class="map"></div>
+
+		<div id="incident_desc_outer">
+			<div class="close_panel">
+				x
+			</div>
+
+			<div id="incident_desc">
+				<ul>
+					<li>
+						<strong>Date</strong> <span id="desc_date"></span>
+					</li>
+					<li>
+						<strong>Location</strong> <span id="desc_loc"></span>
+					</li>
+					<li>
+						<strong>Victims</strong>
+						<ul id="desc_victims"></ul>
+					</li>
+					<li>
+						<strong>Description</strong> <span id="desc_summary"></span>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row is_loading">
+		<ul id="incidents_legend">
+			<li id="juvenile_killed">Juvenile victim, killed</li>
+			<li id="juvenile_wounded">Juvenile victim, wounded</li>
+			<li id="other">All other shootings</li>
+		</ul>
+	</div>
+</div><script src="assets/main.min.js"></script>
+
+</body>
+</html>
