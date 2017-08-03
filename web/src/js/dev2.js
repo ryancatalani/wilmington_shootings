@@ -7,7 +7,7 @@ $(function(){
 
 	var incidents_data;
 	$.when(
-		$.getJSON('assets/incidents_new.json', function(data) {
+		$.getJSON('assets/data/incidents_new.json', function(data) {
 			incidents_data = data;
 		})
 	).then(function() {
@@ -28,7 +28,7 @@ $(function(){
 		}
 	});
 
-	Papa.parse('assets/incident_counts_midsizecity_percapita.csv', {
+	Papa.parse('assets/data/incident_counts_midsizecity_percapita.csv', {
 		download: true,
 		header: true,
 		dynamicTyping: true,
@@ -93,7 +93,7 @@ $(function(){
 		}
 	});
 
-	Papa.parse('assets/juveniles_charged_gang.csv', {
+	Papa.parse('assets/data/juveniles_charged_gang.csv', {
 		download: true,
 		header: true,
 		dynamicTyping: true,
@@ -529,7 +529,7 @@ $(function(){
 	}
 
 	function addWilmingtonBoundsToMaps(all_maps, opts={}) {
-		$.getJSON('assets/wilmington_bounds_topo.json', function(bounds_data) {
+		$.getJSON('assets/data/wilmington_bounds_topo.json', function(bounds_data) {
 
 			for (var i = 0; i < all_maps.length; i++) {
 				var map = all_maps[i];
