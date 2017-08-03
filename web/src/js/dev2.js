@@ -1,141 +1,165 @@
 $(function(){
 
 	var break1 = 540;
-
-	var map_dots = createMap('map_dots');
+	var map_dots;
 	var last_incident_marker_clicked;
-
 	var incidents_data;
-	$.when(
-		$.getJSON('assets/data/incidents_new.json', function(data) {
-			incidents_data = data;
-		})
-	).then(function() {
-		if (incidents_data) {
 
-			$('#loading').hide();
-			$('.is_loading').css('opacity', 1).removeClass('is_loading');
+	if ( $('#graphic_map').length > 0 ) {
+		createGraphicMap();
+	}
 
-			createDotMap({
-				data: incidents_data,
-				map: map_dots,
-				toggle_el: '.toggle li',
-				toggle_class: '.toggle',
-				reset_btn: '#map_dots_reset'
-			});
+	if ( $('#graphic_cities').length > 0 ) {
+		createGraphicCities();
+	}
 
-			addWilmingtonBoundsToMaps([map_dots]);
-		}
-	});
+	if ( $('#graphic_juveniles').length > 0 ) {
+		createGraphicJuveniles();
+	}
 
-	Papa.parse('assets/data/incident_counts_midsizecity_percapita.csv', {
-		download: true,
-		header: true,
-		dynamicTyping: true,
-		complete: function(results) {
-			var rawData = results.data;
-			var chartData = {
-				labels: [],
-				datasets: [
-					{
-						label: 'Teen gun violence incidents per 10,000 people',
-						backgroundColor: [],
-						borderWidth: 0,
-						data: []
+
+	function createGraphicMap() {
+		map_dots = createMap('map_dots');
+		
+		$.when(
+			$.getJSON('assets/data/incidents_new.json', function(data) {
+				incidents_data = data;
+			})
+		).then(function() {
+			if (incidents_data) {
+
+				$('#loading').hide();
+				$('.is_loading').css('opacity', 1).removeClass('is_loading');
+
+				createDotMap({
+					data: incidents_data,
+					map: map_dots,
+					toggle_el: '.toggle li',
+					toggle_class: '.toggle',
+					reset_btn: '#map_dots_reset'
+				});
+
+				addWilmingtonBoundsToMaps([map_dots]);
+			}
+		});
+	}
+
+	function createGraphicCities() {
+		Papa.parse('assets/data/incident_counts_midsizecity_percapita.csv', {
+			download: true,
+			header: true,
+			dynamicTyping: true,
+			complete: function(results) {
+				var rawData = results.data;
+				var chartData = {
+					labels: [],
+					datasets: [
+						{
+							label: 'Teen gun violence incidents per 10,000 people',
+							backgroundColor: [],
+							borderWidth: 0,
+							data: []
+						}
+					]
+				};
+
+				var citiesToInclude = 6;
+				var multiplier = 10000;
+				var precision = 10;
+				var cityIndex = 1;
+				for (var i = 0; i < citiesToInclude; i++) {
+					var cityData = rawData[i];
+					
+					if (cityData.city != 'Chicago') {
+						var name = '#' + cityIndex + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
+						cityIndex += 1;
+						chartData.datasets[0].backgroundColor.push('#1b9cfa');
+					} else {
+						var name = cityData.city + ', ' + stateNameToAbbr(cityData.state) + '*';
+						chartData.datasets[0].backgroundColor.push('#abdcfb');
 					}
-				]
-			};
+					var percapita = cityData.teen_incidents_tot_per_capita;
+					var perpop = Math.round(percapita * multiplier * precision) / precision;
 
-			var citiesToInclude = 6;
-			var multiplier = 10000;
-			var precision = 10;
-			var cityIndex = 1;
-			for (var i = 0; i < citiesToInclude; i++) {
-				var cityData = rawData[i];
-				
-				if (cityData.city != 'Chicago') {
-					var name = '#' + cityIndex + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
-					cityIndex += 1;
-					chartData.datasets[0].backgroundColor.push('#1b9cfa');
-				} else {
-					var name = cityData.city + ', ' + stateNameToAbbr(cityData.state) + '*';
-					chartData.datasets[0].backgroundColor.push('#abdcfb');
-				}
-				var percapita = cityData.teen_incidents_tot_per_capita;
-				var perpop = Math.round(percapita * multiplier * precision) / precision;
+					chartData.labels.push(name);
+					chartData.datasets[0].data.push(perpop);
+				};
 
-				chartData.labels.push(name);
-				chartData.datasets[0].data.push(perpop);
-			};
-
-			var ctx = $('#chart_cities');
-			var chartCities = new Chart(ctx, {
-				type: 'horizontalBar',
-				data: chartData,
-				options: {
-					legend: {
-						position: 'bottom'
-					},
-					scales: {
-						xAxes: [{
-							ticks: {
-								min: 0
-							}
-						}],
-						yAxes: [{
-							gridLines: {
-								display: false
-							}
-						}]
+				var ctx = $('#chart_cities');
+				var chartCities = new Chart(ctx, {
+					type: 'horizontalBar',
+					data: chartData,
+					options: {
+						legend: {
+							position: 'bottom'
+						},
+						scales: {
+							xAxes: [{
+								ticks: {
+									min: 0
+								}
+							}],
+							yAxes: [{
+								gridLines: {
+									display: false
+								}
+							}]
+						}
 					}
-				}
-			});
-		}
-	});
+				});
+			}
+		});
+	}
 
-	Papa.parse('assets/data/juveniles_charged_gang.csv', {
-		download: true,
-		header: true,
-		dynamicTyping: true,
-		complete: function(results) {
-			var rawData = results.data;
-			var chartData = {
-				labels: [],
-				datasets: [
-					{
-						label: 'Juveniles charged with gang participation',
-						backgroundColor: '#1b9cfa',
-						borderWidth: 0,
-						data: []
+	function createGraphicJuveniles() {
+		Papa.parse('assets/data/juveniles_charged_gang.csv', {
+			download: true,
+			header: true,
+			dynamicTyping: true,
+			complete: function(results) {
+				var rawData = results.data;
+				var chartData = {
+					labels: [],
+					datasets: [
+						{
+							label: 'Juveniles charged with gang participation',
+							backgroundColor: '#1b9cfa',
+							borderWidth: 0,
+							data: []
+						}
+					]
+				};
+
+				for (var i = 0; i < rawData.length; i++) {
+					var yearData = rawData[i];
+					chartData.labels.push(yearData.year);
+					chartData.datasets[0].data.push(yearData.count);
+				};
+
+				var ctx = $('#chart_charged');
+				var chartCharged = new Chart(ctx, {
+					type: 'line',
+					data: chartData,
+					options: {
+						legend: {
+							position: 'bottom'
+						},
+						scales: {
+							xAxes: [{
+								gridLines: {
+									display: false
+								}
+							}]
+						}
 					}
-				]
-			};
+				});
+			}
+		});
 
-			for (var i = 0; i < rawData.length; i++) {
-				var yearData = rawData[i];
-				chartData.labels.push(yearData.year);
-				chartData.datasets[0].data.push(yearData.count);
-			};
+	}
 
-			var ctx = $('#chart_charged');
-			var chartCharged = new Chart(ctx, {
-				type: 'line',
-				data: chartData,
-				options: {
-					legend: {
-						position: 'bottom'
-					},
-					scales: {
-						xAxes: [{
-							gridLines: {
-								display: false
-							}
-						}]
-					}
-				}
-			});
-		}
-	});
+
+
 
 	function createMap(elementID) {
 		var map = L.map(elementID).setView([39.745833, -75.546667], 13);
