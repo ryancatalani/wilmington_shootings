@@ -5,6 +5,7 @@ $(function(){
 	var last_incident_marker_clicked;
 	var incidents_data;
 
+
 	if ( $('#graphic_map').length > 0 ) {
 		createGraphicMap();
 	}
@@ -15,7 +16,7 @@ $(function(){
 
 	if ( $('#graphic_juveniles').length > 0 ) {
 		createGraphicJuveniles();
-	}
+	}		
 
 
 	function createGraphicMap() {

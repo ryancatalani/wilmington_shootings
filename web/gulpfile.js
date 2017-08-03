@@ -22,6 +22,22 @@ gulp.task('styles', function() {
 	return gulp.src(styleFiles)
 		.pipe(concat('main.css'))
 		.pipe(gulp.dest(styleDest));
+});
+
+var devFiles = [
+	'src/partials/dev_header.html',
+	'src/partials/graphic_map.html',
+	'src/partials/graphic_cities.html',
+	'src/partials/graphic_juveniles.html',
+	'src/partials/dev_footer.html'
+];
+
+gulp.task('createDev', function() {
+	return gulp.src(devFiles)
+		.pipe(concat('dev2.html'))
+		.pipe(gulp.dest(''))
 })
+
+
 
 gulp.task('default', ['js', 'styles']);
