@@ -49,9 +49,9 @@ var prodFullFileList = [
 	'src/partials/prod_footer.html'
 ];
 
-gulp.task('createProd', function() {
+gulp.task('createProdCombined', function() {
 	return gulp.src(prodFullFileList)
-		.pipe(concat('graphics_all.html'))
+		.pipe(concat('index.html'))
 		.pipe(gulp.dest(''))
 });
 
@@ -61,7 +61,7 @@ var graphicsFiles = [
 	'src/partials/graphic_juveniles.html'
 ];
 
-gulp.task('createIndivFiles', function() {
+gulp.task('createProdIndiv', function() {
 	return gulp.src(graphicsFiles)
 		.pipe(headerfooter.header('src/partials/prod_header.html'))
 		.pipe(headerfooter.footer('src/partials/prod_footer.html'))
@@ -70,4 +70,4 @@ gulp.task('createIndivFiles', function() {
 
 
 
-gulp.task('default', ['js', 'styles', 'createProd']);
+gulp.task('default', ['js', 'styles', 'createProdCombined', 'createProdIndiv']);
