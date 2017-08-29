@@ -239,6 +239,13 @@ $(function(){
 							// should show
 							if (!map.hasLayer(marker)) {
 								marker.addTo(map);
+
+								if (marker.options.juvenile) {
+									marker.bringToFront();
+								} else {
+									marker.bringToBack();
+								}
+
 							}
 						} else {
 							// should hide
@@ -266,8 +273,10 @@ $(function(){
 			if (typeof lat == 'string' && typeof lng == 'string') {
 				// (as long as they're not null)
 
+				var juvenile = false;
+
 				var markerOptions = {
-					radius: 4,
+					radius: 3,
 					color: '#8500E1',
 					weight: 1,
 					fillOpacity: 0.5,
@@ -276,12 +285,16 @@ $(function(){
 
 				if (incident.any_juvenile_killed) {
 					markerOptions.color = '#B50E00';
+					juvenile = true;
 				} else if (incident.any_juvenile_victims) {
 					markerOptions.color = '#1b9cfa';
+					juvenile = true;
 				} else {
 					markerOptions.color = 'rgb(183, 183, 183)';
 					markerOptions.fillOpacity = 0.25;
 				}
+
+				markerOptions.juvenile = juvenile;
 
 				var marker = L.circleMarker([lat, lng], markerOptions);
 				marker.on('click', function(){
@@ -293,11 +306,20 @@ $(function(){
 					});
 				});
 
+
 				marker.addTo(map);
+
+				if (juvenile) {
+					marker.bringToFront();
+				} else {
+					marker.bringToBack();
+				}
+
 				markers.push(marker);
 
 			}
 		}
+
 
 		var chartData = filterOverTimeData(data);
 
@@ -343,6 +365,11 @@ $(function(){
 					var marker = markers[i];
 					if (!map.hasLayer(marker)) {
 						marker.addTo(map);
+						if (marker.options.juvenile) {
+							marker.bringToFront();
+						} else {
+							marker.bringToBack();
+						}
 					} 
 				};
 				if (opts.toggle_el !== undefined && opts.toggle_class !== undefined) {
