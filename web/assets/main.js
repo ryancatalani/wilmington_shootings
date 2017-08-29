@@ -691,6 +691,10 @@ $(function(){
 							xAxes: [{
 								ticks: {
 									min: 0
+								},
+								gridLines: {
+									drawBorder: false,
+									zeroLineColor: 'rgba(0,0,0,0.1)'
 								}
 							}],
 							yAxes: [{
@@ -742,6 +746,11 @@ $(function(){
 							xAxes: [{
 								gridLines: {
 									display: false
+								}
+							}],
+							yAxes: [{
+								gridLines: {
+									drawBorder: false
 								}
 							}]
 						}
@@ -851,7 +860,7 @@ $(function(){
 				// (as long as they're not null)
 
 				var markerOptions = {
-					radius: 4,
+					radius: 3,
 					color: '#8500E1',
 					weight: 1,
 					fillOpacity: 0.5,
@@ -863,7 +872,8 @@ $(function(){
 				} else if (incident.any_juvenile_victims) {
 					markerOptions.color = '#1b9cfa';
 				} else {
-					markerOptions.color = '#999';
+					markerOptions.color = 'rgb(183, 183, 183)';
+					markerOptions.fillOpacity = 0.25;
 				}
 
 				var marker = L.circleMarker([lat, lng], markerOptions);
@@ -902,11 +912,14 @@ $(function(){
 						ticks: {
 							min: 0
 						},
+						gridLines: {
+							drawBorder: false
+						}
 					}],
 					xAxes: [{
 						gridLines: {
 							display: false
-						}
+						},
 					}]
 				}
 			}

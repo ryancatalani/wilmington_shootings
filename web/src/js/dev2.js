@@ -98,6 +98,10 @@ $(function(){
 							xAxes: [{
 								ticks: {
 									min: 0
+								},
+								gridLines: {
+									drawBorder: false,
+									zeroLineColor: 'rgba(0,0,0,0.1)'
 								}
 							}],
 							yAxes: [{
@@ -149,6 +153,11 @@ $(function(){
 							xAxes: [{
 								gridLines: {
 									display: false
+								}
+							}],
+							yAxes: [{
+								gridLines: {
+									drawBorder: false
 								}
 							}]
 						}
@@ -270,7 +279,8 @@ $(function(){
 				} else if (incident.any_juvenile_victims) {
 					markerOptions.color = '#1b9cfa';
 				} else {
-					markerOptions.color = '#999';
+					markerOptions.color = 'rgb(183, 183, 183)';
+					markerOptions.fillOpacity = 0.25;
 				}
 
 				var marker = L.circleMarker([lat, lng], markerOptions);
@@ -309,11 +319,14 @@ $(function(){
 						ticks: {
 							min: 0
 						},
+						gridLines: {
+							drawBorder: false
+						}
 					}],
 					xAxes: [{
 						gridLines: {
 							display: false
-						}
+						},
 					}]
 				}
 			}
@@ -348,6 +361,21 @@ $(function(){
 				return false;
 			});
 		}
+
+		map.on('zoomend', function() {
+			var markerRadius = 3;
+			if (map.getZoom() > 13) {
+				markerRadius = 4;
+			} else if (map.getZoom() < 13) {
+				markerRadius = 2;
+			}
+
+			for (var i = 0; i < markers.length; i++) {
+				markers[i].setStyle({
+					radius: markerRadius
+				});
+			};
+		});
 
 	}
 
