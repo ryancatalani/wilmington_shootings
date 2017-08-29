@@ -860,7 +860,7 @@ $(function(){
 				// (as long as they're not null)
 
 				var markerOptions = {
-					radius: 3,
+					radius: 4,
 					color: '#8500E1',
 					weight: 1,
 					fillOpacity: 0.5,
@@ -954,6 +954,21 @@ $(function(){
 				return false;
 			});
 		}
+
+		map.on('zoomend', function() {
+			var markerRadius = 3;
+			if (map.getZoom() > 13) {
+				markerRadius = 4;
+			} else if (map.getZoom() < 13) {
+				markerRadius = 2;
+			}
+
+			for (var i = 0; i < markers.length; i++) {
+				markers[i].setStyle({
+					radius: markerRadius
+				});
+			};
+		});
 
 	}
 
