@@ -3,8 +3,8 @@ require 'nokogiri'
 require 'json'
 require 'time'
 
-first_id = 797
-last_id = 814
+first_id = 814
+last_id = 823
 # last_id = .incident_list .incident a[href] /webapps/crime/:id/:slug
 
 ids = (first_id..last_id)

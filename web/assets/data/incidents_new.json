@@ -29504,5 +29504,342 @@
     ],
     "lng": "-75.543951",
     "lat": "39.730411"
+  },
+  {
+    "id": 815,
+    "title": "Two men shot in Wilmington as city leaders discuss gun violence",
+    "location": "In the area of 1100 block of Maryland Ave, Wilmington, DE 19805",
+    "date": "Aug. 3, 2017",
+    "time": "7:30 p.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-03T19:30:00-04:00",
+    "summary": "The city's Shot Spotter Notification System alerted police to gunfire and a shooting scene was found in the 1100 block of Maryland Ave. \n\nPolice found a 22-year-old man shot in the lower right leg.  Then, authorities were told that another 22-year-old man had turned up a St. Francis Hospital with a gunshot wound to his abdomen.  Both are listed in stable condition.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "22",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "22",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.569116",
+    "lat": "39.736387"
+  },
+  {
+    "id": 816,
+    "title": "Man walks into Wilmington Hospital with gunshot wound",
+    "location": "In the area of Lancaster Ave. and S. Van Buren St., Wilmington, DE 19805",
+    "date": "Aug. 8, 2017",
+    "time": "1:55 p.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-08T13:55:00-04:00",
+    "summary": "A 25-year-old man showed up at Wilmington Hospital Tuesday afternoon with a gunshot wound to his leg.\n\nThe victim told police he was walking in the area of Lancaster Ave. and Van Buren streets when he felt a pain in his right leg, an official said.\n\nA search of the area yielded no evidence of gunfire.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "25",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.563536",
+    "lat": "39.742319"
+  },
+  {
+    "id": 817,
+    "title": "Man shot in head becomes city's most recent homicide",
+    "location": "In the area of 600 block of N. Pine St., Wilmington, DE 19801",
+    "date": "Aug. 9, 2017",
+    "time": "1:20 a.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-09T01:20:00-04:00",
+    "summary": "At about 1:20 a.m., officers responded to the 600 block of N. Pine Street in reference to a Shot Spotter  notification of gunfire in the area. \n\nThere, police found a 23-year-old man victim lying on the sidewalk suffering from a gunshot wound to his head.   The victim was rushed to Christiana Hospital where he later died. \n\nPolice have identified the victim as Nycire Mills of New Castle.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": true,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": false,
+        "name": "Nycire  Mills",
+        "age": "23",
+        "status": "Mills was killed during the incident.",
+        "killed": true,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.544097",
+    "lat": "39.739372"
+  },
+  {
+    "id": 818,
+    "title": "Teens rob man, shot him in knee",
+    "location": "In the area of 800 block of W. 3rd St., Wilmington, DE 19801",
+    "date": "Aug. 8, 2017",
+    "time": "2:30 a.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-08T02:30:00-04:00",
+    "summary": "Police on patrol heard shot fired in the area of 4th and Monroe.  Seconds later, officers saw a gold minivan fleeing at a high rate of speed from the area.\n\nPolice stopped the vehicle.  The driver, Darius Wrenn,18, and a 15-year-old boy from New Castle were charged in the robbery/shooting.  Four other people in the van were not charged.\n\nPolice found a crime scene along with a wounded 61-year-old man, who was shot in the knee, in the 800 block of W. 3rd St.  The victim was taken to Christiana Hospital and admitted in good condition.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": true,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "61",
+        "status": "Man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+      {
+        "unidentified": false,
+        "name": "Darius Wrenn",
+        "age": "18",
+        "status": "Wrenn was arrested on Aug. 8, 2017.",
+        "arrest_date": "Aug. 8, 2017",
+        "about": "Wrenn, from Sharon Hill, Pa., was charged with Robbery in the 1st Degree, Assault in the 1st Degree, Possession of a Firearm During the Commission of a Felony, Possession of a Firearm by a Person Prohibited, and Conspiracy 2nd Degree."
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Boy",
+        "age": "15",
+        "status": "Boy was arrested on Aug. 8, 2017.",
+        "arrest_date": "Aug. 8, 2017",
+        "about": "Unnamed teen was charged with Robbery in the 1st Degree, Assault in the 1st Degree, Possession of a Firearm During the Commission of a Felony, Possession of a Firearm by a Person Prohibited, and Conspiracy 2nd Degree."
+      }
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.558982",
+    "lat": "39.742770"
+  },
+  {
+    "id": 819,
+    "title": "Man shot in neck on Tatnall St.",
+    "location": "In the area of 1800 block of Tatnall St., Wilmington, DE 19802",
+    "date": "Aug. 18, 2017",
+    "time": "1:10 a.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-18T01:10:00-04:00",
+    "summary": "Police were informed of a shooting in the 1800 block of N. Tatnall St.  Responding officers found a 36-year-old man victim suffering from a gunshot to the lower neck area.  He was taken to Wilmington Hospital and is listed in stable condition.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "36",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.544238",
+    "lat": "39.751945"
+  },
+  {
+    "id": 820,
+    "title": "Man and woman shot inside Eastide house",
+    "location": "In the area of 900 block of Clifford Brown Walk, Wilmington, DE 19801",
+    "date": "Aug. 22, 2017",
+    "time": "10:55 p.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-22T22:55:00-04:00",
+    "summary": "Wilmington police responded to the 900 block of Clifford Brown Walk, where the found two victims inside a residence. \n\nA woman suffered a graze to her shoulder by a bullet that than penetrated her neck, police said. A man inside with her took a graze wound to the chest. \n\nBoth were taken to Christiana Hospital in stable condition, police said.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "22",
+        "status": "Man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      },
+      {
+        "unidentified": true,
+        "name": "Unidentified Woman",
+        "age": "51",
+        "status": "Woman was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.543733",
+    "lat": "39.743746"
+  },
+  {
+    "id": 821,
+    "title": "Man found shot multiple times",
+    "location": "In the area of 100 block of E. 24th St., Wilmington, DE 19802",
+    "date": "Aug. 23, 2017",
+    "time": "1:50 a.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-23T01:50:00-04:00",
+    "summary": "Officers responded to a Shot Spotter notification just before 2 a.m. Wednesday in the 100 block of E. 24th St. and found a man suffering from multiple gunshot wounds to his lower body, police said. \n\nThe man was listed in critical but stable condition when he was taken to Christiana Hospital, police said.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "38",
+        "status": "Man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.536407",
+    "lat": "39.752588"
+  },
+  {
+    "id": 822,
+    "title": "Man on Concord Avenue shot in shoulder",
+    "location": "In the area of 300 block of Concord Ave., Wilmington, DE 19802",
+    "date": "Aug. 24, 2017",
+    "time": "5 p.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-24T17:00:00-04:00",
+    "summary": "A 38-year-old man was hospitalized after being shot in the shoulder Thursday.\n\nCity officers responded to the 300 block of Concord Ave. about 5 p.m. after hearing gunshots in the area, police said.\n\nThere, police found the shooting victim. He was taken to Christiana Hospital where he was listed as stable.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "38",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.541755",
+    "lat": "39.756102"
+  },
+  {
+    "id": 823,
+    "title": "Shooting on E. 23rd St. critically injures man",
+    "location": "In the area of 100 block of E. 23rd St, Wilmington, DE 19802",
+    "date": "Aug. 28, 2017",
+    "time": "8:10 p.m.",
+    "year": 2017,
+    "year_month": "2017-08",
+    "iso8601": "2017-08-28T20:10:00-04:00",
+    "summary": "A shooting Monday night in Wilmington left a 24-year-old man in critical but stable condition.\n\nPolice were patrolling in the area of East 23rd St. when they heard shots firedÂ just before 8:10 p.m.  A crime scene was located in the 100 block of E. 23 rd St.\n\nThe victim was taken to Wilmington Hospital by private vehicle.  He was wounded in his left torso.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "24",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.537229",
+    "lat": "39.752078"
   }
 ]
