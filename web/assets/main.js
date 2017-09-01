@@ -639,7 +639,7 @@ $(function(){
 	}
 
 	function createGraphicCities() {
-		Papa.parse('assets/data/incident_counts_midsizecity_percapita.csv', {
+		Papa.parse('assets/data/midsize_teen_vics.csv', {
 			download: true,
 			header: true,
 			dynamicTyping: true,
@@ -649,7 +649,7 @@ $(function(){
 					labels: [],
 					datasets: [
 						{
-							label: 'Teen gun violence incidents per 10,000 people',
+							label: 'People aged 12-17 injured or killed annually (per 1,000)',
 							backgroundColor: [],
 							borderWidth: 0,
 							data: []
@@ -658,7 +658,7 @@ $(function(){
 				};
 
 				var citiesToInclude = 6;
-				var multiplier = 10000;
+				var multiplier = 1000;
 				var precision = 10;
 				var cityIndex = 1;
 				for (var i = 0; i < citiesToInclude; i++) {
@@ -669,10 +669,10 @@ $(function(){
 						cityIndex += 1;
 						chartData.datasets[0].backgroundColor.push('#1b9cfa');
 					} else {
-						var name = cityData.city + ', ' + stateNameToAbbr(cityData.state) + '*';
+						var name = cityData.city + ', ' + stateNameToAbbr(cityData.state);
 						chartData.datasets[0].backgroundColor.push('#abdcfb');
 					}
-					var percapita = cityData.teen_incidents_tot_per_capita;
+					var percapita = cityData.victimrate_over_teens;
 					var perpop = Math.round(percapita * multiplier * precision) / precision;
 
 					chartData.labels.push(name);
