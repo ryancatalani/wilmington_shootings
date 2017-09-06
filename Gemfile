@@ -4,3 +4,5 @@ source "https://rubygems.org"
 gem "nokogiri"
 gem "httparty"
 gem "sass"
+gem 'aws-sdk', '~> 3'
+gem 'dotenv'

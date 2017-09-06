@@ -23,7 +23,7 @@ $(function(){
 		map_dots = createMap('map_dots');
 		
 		$.when(
-			$.getJSON('assets/data/incidents_new.json', function(data) {
+			$.getJSON('https://rcpublic.s3.amazonaws.com/wilm_shootings/assets/data/incidents_new.json', function(data) {
 				incidents_data = data;
 			})
 		).then(function() {
@@ -72,8 +72,9 @@ $(function(){
 					var cityData = rawData[i];
 					
 					if (cityData.city != 'Chicago') {
-						var name = '#' + cityIndex + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
-						cityIndex += 1;
+						// var name = '#' + cityIndex + ': ' + cityData.city + ', ' + stateNameToAbbr(cityData.state);
+						// cityIndex += 1;
+						var name = cityData.city + ', ' + stateNameToAbbr(cityData.state);
 						chartData.datasets[0].backgroundColor.push('#1b9cfa');
 					} else {
 						var name = cityData.city + ', ' + stateNameToAbbr(cityData.state);

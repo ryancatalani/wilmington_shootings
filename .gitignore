@@ -24,3 +24,5 @@ web/src/styles/.sass-cache
 web/src/styles/.sass-cache/*
 
 node_modules/
+
+.env

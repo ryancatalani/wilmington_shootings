@@ -29841,5 +29841,141 @@
     ],
     "lng": "-75.537229",
     "lat": "39.752078"
+  },
+  {
+    "id": 824,
+    "title": "20-year-old dies from shooting injuries",
+    "location": "In the area of 800 block of N. Adams St., Wilmington, DE 19801",
+    "date": "Sept. 2, 2017",
+    "time": "1:15 p.m.",
+    "year": 2017,
+    "year_month": "2017-09",
+    "iso8601": "2017-09-02T13:15:00-04:00",
+    "summary": "Police responded to the 800 block of N. Adams St. in reference to a shooting. \n\nThere, officer found a 20-year-old man with gunshot wounds to his upper torso. The victim was treated on scene by New Castle County Paramedics and transported to the Christiana Hospital Emergency where he died from his injuries.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": true,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": false,
+        "name": "Kaimel Ennals",
+        "age": "20",
+        "status": "Ennals was killed during the incident.",
+        "killed": true,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.557249",
+    "lat": "39.746943"
+  },
+  {
+    "id": 825,
+    "title": "19-year-old killed on W. 26th St.",
+    "location": "In the area of Unit block of W. 26th St., Wilmington, DE 19802",
+    "date": "Sept. 3, 2017",
+    "time": "9:10 p.m.",
+    "year": 2017,
+    "year_month": "2017-09",
+    "iso8601": "2017-09-03T21:10:00-04:00",
+    "summary": "The city's Shot Spotter notification system alerted police to a shooting in the unit block of W. 26th St. \n\nArriving police officers  located a 19-year-old male down in the block suffering from apparent gunshot wounds to his torso area. The victim was treated on scene by New Castle County Paramedics and transported to the Christiana Hospital Emergency Room where he later died.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": true,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": false,
+        "name": "Barry White",
+        "age": "19",
+        "status": "White was killed during the incident.",
+        "killed": true,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.535951",
+    "lat": "39.754496"
+  },
+  {
+    "id": 826,
+    "title": "Townsend Place shooting injures 19-year-old",
+    "location": "In the area of 700 block of Townsend Place, Wilmington, DE 19801",
+    "date": "Sept. 4, 2017",
+    "time": "2:10 p.m.",
+    "year": 2017,
+    "year_month": "2017-09",
+    "iso8601": "2017-09-04T14:10:00-04:00",
+    "summary": "Police were called to a shooting on Labor Day in the 700 block of Townsend Place.\n\nThe victim, a 19-year-old man, was shot in his right ankle and also had a graze wound to his head.  He is listed in good condition at Christiana Hospital.",
+    "any_juvenile_victims": false,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Man",
+        "age": "19",
+        "status": "The unidentified man was wounded during the incident.",
+        "killed": false,
+        "about": "Victim was shot once in his ankle and also sustained a graze wound to his head."
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.545907",
+    "lat": "39.726960"
+  },
+  {
+    "id": 827,
+    "title": "Young girl injured in shooting",
+    "location": "In the area of  1900 block of W. Fifth St., Wilmington, DE 19805",
+    "date": "Sept. 4, 2017",
+    "time": "5:10 p.m.",
+    "year": 2017,
+    "year_month": "2017-09",
+    "iso8601": "2017-09-04T17:10:00-04:00",
+    "summary": "A 5-year-old girl is recovering following a shooting in the 1900 block of W. Fifth St.\n\nPolice were directed to a home on the street where the found the girl suffering from a graze wound to her lower, right leg.  She was taken to St. Francis Hospital and admitted in good condition.",
+    "any_juvenile_victims": true,
+    "any_juvenile_suspects": false,
+    "any_juvenile_killed": false,
+    "any_killed": false,
+    "all_juvenile_victims_and_suspects": false,
+    "victims": [
+      {
+        "unidentified": true,
+        "name": "Unidentified Girl",
+        "age": "5",
+        "status": "The unidentified girl was wounded during the incident.",
+        "killed": false,
+        "about": ""
+      }
+    ],
+    "suspects": [
+
+    ],
+    "images": [
+
+    ],
+    "lng": "-75.571785",
+    "lat": "39.749506"
   }
 ]
