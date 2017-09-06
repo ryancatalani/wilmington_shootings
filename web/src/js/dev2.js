@@ -22,8 +22,15 @@ $(function(){
 	function createGraphicMap() {
 		map_dots = createMap('map_dots');
 		
+		var json_url;
+		if (document.location.host.indexOf('localhost') === 0) {
+			json_url = 'assets/data/incidents_new.json';
+		} else {
+			json_url = 'https://rcpublic.s3.amazonaws.com/wilm_shootings/assets/data/incidents_new.json';
+		}
+
 		$.when(
-			$.getJSON('https://rcpublic.s3.amazonaws.com/wilm_shootings/assets/data/incidents_new.json', function(data) {
+			$.getJSON(json_url, function(data) {
 				incidents_data = data;
 			})
 		).then(function() {
