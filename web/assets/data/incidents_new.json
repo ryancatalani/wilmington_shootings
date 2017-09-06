@@ -27365,7 +27365,7 @@
     "year": 2017,
     "year_month": "2017-04",
     "iso8601": "2017-04-14T19:25:00-04:00",
-    "summary": "A 20-year-old man was shot in the abdomen and leg Friday night, police said.\n\nOfficers responded to the area of  27th and Moore streets in reference to a shooting investigation, police said. Upon arrival, officers found the victim in the 2700 block of N. Tatnall St. suffering from gunshot wounds, police said. \n\nHe was treated at the scene by New Castle County paramedics and taken by helicopter to Christiana Hospital.",
+    "summary": "A 20-year-old man was shot in the abdomen and leg Friday night, police said.\n\nOfficers responded to the area of  27th and Moore streets in reference to a shooting investigation, police said. Upon arrival, officers found the victim in the 2700 block of N. Tatnall St. suffering from gunshot wounds, police said. \n\nHe was treated at the scene by New Castle County paramedics and taken by helicopter to Christiana Hospital.\n\nShaquille Brisco, 23, and Tyrone Brooks, 27, both of Wilmington, have been charged in the shooting.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
     "any_juvenile_killed": false,
@@ -27382,10 +27382,32 @@
       }
     ],
     "suspects": [
-
+      {
+        "unidentified": false,
+        "name": "Shaquille  Brisco",
+        "age": "23",
+        "status": "Brisco was arrested on April 15, 2017.",
+        "arrest_date": "April 15, 2017",
+        "about": "He is charged with attempted first-degree murder, possession of a firearm during the commission of a felony, two counts of possession of a firearm by a person prohibited and second-degree conspiracy."
+      },
+      {
+        "unidentified": false,
+        "name": "Tyrone  Brooks",
+        "age": "27",
+        "status": "Brooks was arrested on July 13, 2017.",
+        "arrest_date": "July 13, 2017",
+        "about": "He is charged with attempted first-degree murder, possession of a firearm during the commission of a felony, two counts of possession of a firearm by a person prohibited and second-degree conspiracy."
+      }
     ],
     "images": [
-
+      {
+        "src": "http://data.delawareonline.com/webapps/media/suspect_photos/Shaquille%20Brisco.jpeg.300x400_q85_crop_detail.jpg",
+        "name": "Shaquille  Brisco"
+      },
+      {
+        "src": "http://data.delawareonline.com/webapps/media/suspect_photos/Tyrone%20Brooks.jpeg.300x400_q85_crop_detail.jpg",
+        "name": "Tyrone  Brooks"
+      }
     ],
     "lng": "-75.535164",
     "lat": "39.755778"
@@ -28563,7 +28585,7 @@
     "year": 2017,
     "year_month": "2017-06",
     "iso8601": "2017-06-06T14:35:00-04:00",
-    "summary": "A 6-year-old boy was critically wounded after being shot in the head during a daytime shooting in Wilmington's East Side neighborhood. \n\nThe child was riding in his 31-year-old mother's vehicle at the time of the shooting. \n\nPolice found them in the 700 block of E. Sixth St. and transported the child to Nemours Alfred I. duPont Hospital for Children and the woman to St. Francis Hospital.\n\nChelsa Outlaw, 40, of Minquadale-area, has been charged in the shooting.",
+    "summary": "A 6-year-old boy was critically wounded after being shot in the head during a daytime shooting in Wilmington's East Side neighborhood. \n\nThe child was riding in his 31-year-old mother's vehicle at the time of the shooting. \n\nPolice found them in the 700 block of E. Sixth St. and transported the child to Nemours Alfred I. duPont Hospital for Children and the woman to St. Francis Hospital.\n\nMichael D. Pritchett, 32, has been indicted by a Superior Court grand jury on attempted murder charges.",
     "any_juvenile_victims": true,
     "any_juvenile_suspects": false,
     "any_juvenile_killed": false,
@@ -28580,12 +28602,23 @@
       }
     ],
     "suspects": [
-
+      {
+        "unidentified": false,
+        "name": "Michael Pritchett",
+        "age": "32",
+        "status": "Pritchett was arrested on June 12, 2017.",
+        "arrest_date": "June 12, 2017",
+        "about": "He was indicted on two counts of attempted murder, two counts of first-degree reckless endangerment, second-degree assault, conspiracy and several weapons charges."
+      }
     ],
     "images": [
       {
         "src": "http://data.delawareonline.com/webapps/media/victim_photos/Jashawn1.jpeg.300x400_q85_crop_detail.jpg",
         "name": "Jashawn Banner"
+      },
+      {
+        "src": "http://data.delawareonline.com/webapps/media/suspect_photos/Michael-Pritchett.jpg.300x400_q85_crop_detail.jpg",
+        "name": "Michael Pritchett"
       }
     ],
     "lng": "-75.542907",
@@ -28710,7 +28743,7 @@
     "year": 2017,
     "year_month": "2017-06",
     "iso8601": "2017-06-18T13:40:00-04:00",
-    "summary": "A man and woman were shot Sunday on West Seventh Street.\n\nShotspotter alerted police to five shots fired in the 400 block of W. Seventh St. about 1:40 p.m. Officers at the scene found two gunshot victims, a 45-year-old man, who'd been shot in the ankle and groin and a 31-year-old black woman, who was grazed on the ankle. \n\nBoth were treated on scene by paramedics and taken to Christiana Hospital.",
+    "summary": "A man and woman were shot Sunday on West Seventh Street.\n\nShotspotter alerted police to five shots fired in the 400 block of W. Seventh St. about 1:40 p.m. Officers at the scene found two gunshot victims, a 45-year-old man, who'd been shot in the ankle and groin and a 31-year-old black woman, who was grazed on the ankle. \n\nBoth were treated on scene by paramedics and taken to Christiana Hospital. \n\nAndre Crisden, 28, has been charged in connection with this shooting.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
     "any_juvenile_killed": false,
@@ -28735,10 +28768,20 @@
       }
     ],
     "suspects": [
-
+      {
+        "unidentified": false,
+        "name": "Andre  Crisden",
+        "age": "28",
+        "status": "Crisden was arrested on July 6, 2017.",
+        "arrest_date": "July 6, 2017",
+        "about": "He is charged with two counts of assault in the first degree, possession of a deadly weapon during the commission of a felony and possession of a firearm by a person prohibited."
+      }
     ],
     "images": [
-
+      {
+        "src": "http://data.delawareonline.com/webapps/media/suspect_photos/Andre%20Crisden_1.jpeg.300x400_q85_box-6%2C0%2C186%2C240_crop_detail.jpg",
+        "name": "Andre  Crisden"
+      }
     ],
     "lng": "-75.553356",
     "lat": "39.743874"
@@ -28887,7 +28930,7 @@
     "time": "12:10 a.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-01T00:10:00-05:00",
+    "iso8601": "2017-07-01T00:10:00-04:00",
     "summary": "Two men arrived at St. Francis Hospital early Saturday after being shot in Wilmington's Hilltop neighborhood.\n\nWilmington officers were dispatched to the 1700 block of W. Third St. in reference to a shooting shortly after 12:10 a.m. Arriving officers found evidence of a shooting, but no victims. A short time later, however, officers were called to St. Francis Hospital, where two gunshot victims had arrived in private vehicle.\n\nAt the hospital, officers found a 27-year-old man suffering from gunshot wounds to the arm and a 45-year-old man with a gunshot wound to the arm, police said. Both men were reported to be stable, according to police.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -28929,7 +28972,7 @@
     "time": "9:40 p.m.",
     "year": 2017,
     "year_month": "2017-06",
-    "iso8601": "2017-06-29T21:40:00-05:00",
+    "iso8601": "2017-06-29T21:40:00-04:00",
     "summary": "City officers were flagged down about 9:40 p.m. in the area of 23rd and Market streets in reference to a possible shooting victim, police said. \n\nAt the same time a Shot Spotter alert was received for the unit block of E. 23rd Street. Officers responded to the block and found a 41-year-old man suffering from several gunshot wounds to the leg and a shooting scene.\n\nThe man was taken to Christiana Hospital where he was reported to be stable, police said.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -28963,7 +29006,7 @@
     "time": "1:25 a.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-04T01:25:00-05:00",
+    "iso8601": "2017-07-04T01:25:00-04:00",
     "summary": "A 15-year-old boy was shot early Tuesday in Wilmington's East Side, according to city police.\n\nOfficers were called about 1:25 a.m. to a home in the 900 block of Clifford Brown Walk for the report of a shooting victim. Arriving police found a teen with multiple gun shot wounds to his upper legs. \n\nThe victim told officers he was shot while in the 400 block of E. Ninth St. He was treated at the scene before he was transported to Christiana Hospital, where he was listed as stable.",
     "any_juvenile_victims": true,
     "any_juvenile_suspects": false,
@@ -28997,7 +29040,7 @@
     "time": "10:40 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-06T22:40:00-05:00",
+    "iso8601": "2017-07-06T22:40:00-04:00",
     "summary": "A 30-year-old man was shot in the leg Thursday night.\n\nOfficers were called at about 10:40 p.m. to the 800 block of Maryland Ave. after Shot Spotter notified police of gunfire in the area.  When police arrived, residents directed them to the 1300 block of Cedar St. where a man with a gunshot wound to his right, lower leg was located.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29031,7 +29074,7 @@
     "time": "3 a.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-08T03:00:00-05:00",
+    "iso8601": "2017-07-08T03:00:00-04:00",
     "summary": "A 33-year-old man was shot in the groin during an apparent robbery early Saturday, police said.\n\nOfficers were called to St. Francis Hospital after the man arrived with a gunshot wound, said Sgt. Andrea Janvier, a spokeswoman with the city police department. He was described as stable.\n\nA preliminary investigation determined the man was walking in the area of W. Fourth St. between N. Van Buren and Rodney streets when he was approached by three people he didn't know, Janvier said. They demanded his property and the man complied, but when they tried to get more from him, he ran away.\n\nThat's when one of the robbers shot him.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29065,7 +29108,7 @@
     "time": "3:20 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-12T15:20:00-05:00",
+    "iso8601": "2017-07-12T15:20:00-04:00",
     "summary": "On July 12 at about 3:20 p.m., police were told that a shooting victim who had arrived at the Wilmington Hospital Emergency Room via private vehicle. \n\nThe victim, a 20-year-old man, was shot in his left hand and is listed in good condition. Investigators believe the shooting occurred in the area of the 300 block of E. 26th Street when a man approached the victim from behind and shot at him.  The victim ran away and was able to get a ride to the hospital.  No ShotSpotter Notification was received for this area and no crime scene could be located.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29099,7 +29142,7 @@
     "time": "11:25 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-14T23:25:00-05:00",
+    "iso8601": "2017-07-14T23:25:00-04:00",
     "summary": "A 22-year-old man was critically wounded after being shot late Friday died Sunday. \n\nOfficers responding to the 1200 block of W. Third St. found the man suffering gunshot wounds to the facial and torso areas. \n\nThe victim was taken to Christiana Hospital in critical condition.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29133,7 +29176,7 @@
     "time": "10:05 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-16T22:05:00-05:00",
+    "iso8601": "2017-07-16T22:05:00-04:00",
     "summary": "A 37-year-old man is in stable condition following a shooting Sunday night.  \n\nInvestigators say the shooting happened in the area of Seventh and N. Monroe streets just after 10 p.m. when the victim was passed on foot by two male juveniles, an official said.  For an unknown reason, one of the suspects fired at the victim hitting him in the right hip and right foot, an official said.\n\nThe victim was able to stop a passing vehicle.  The motorist drove him to Wilmington Hospital, an official said.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29167,7 +29210,7 @@
     "time": "12:25 a.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-22T00:25:00-05:00",
+    "iso8601": "2017-07-22T00:25:00-04:00",
     "summary": "Officers responded to a shooting at about 12:25 a.m. in the 1300 block of E. 27th St. and found two victims. \n\nThe first victim was a 15-year-old girl, who was suffering a gunshot wound to her lower back area. The girl was treated by New Castle County Paramedics and taken to the Nemours/Alfred I. duPont Hospital for Children, where she was reported to be stable.\n\nThe second victim is a 30-year-old man, who was shot in the left shoulder. He was treated by paramedics before being taken to Christiana Hospital, where he also was listed as stable, Janvier said. \n\nOfficers found a shooting scene in the 1200 block of E. 27th St.",
     "any_juvenile_victims": true,
     "any_juvenile_suspects": false,
@@ -29209,7 +29252,7 @@
     "time": "10:30 a.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-22T10:30:00-05:00",
+    "iso8601": "2017-07-22T10:30:00-04:00",
     "summary": "A 29-year-old man is in stable condition after being shot following a verbal altercation, police said.\n\nOfficers responded about 10:30 a.m. to the area of E. 24th and Carter streets for a shooting investigation. Arriving officers found the 29-year-old man suffering from gunshot wounds to his right leg and left arm in the 2300 block of Carter St. \n\nHe was treated at the scene by New Castle County Paramedics and taken to Christiana Hospital.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29243,7 +29286,7 @@
     "time": "8:45 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-26T20:45:00-05:00",
+    "iso8601": "2017-07-26T20:45:00-04:00",
     "summary": "At about 8:45 p.m., police were called to a home in the 2400 block of N. Madison St. in reference to an apparent shooting investigation.\n\nThere, police found an 18-year-old woman and a 16-year-old boy.  Each person had been shot once in one of their legs.  Both were taken to Christiana Hospital in stable condition.",
     "any_juvenile_victims": true,
     "any_juvenile_suspects": false,
@@ -29269,10 +29312,20 @@
       }
     ],
     "suspects": [
-
+      {
+        "unidentified": false,
+        "name": "Rahe Walker",
+        "age": "20",
+        "status": "Walker was arrested on Aug. 2, 2017.",
+        "arrest_date": "Aug. 2, 2017",
+        "about": "Charged with : (2) Counts of Assault in the 1st Degree, Possession of a Firearm During the Commission of a Felony and Conspiracy in the  2nd Degree\r\rWalker was committed to the Howard Young Correctional Facility in lieu of $91,000 cash bail."
+      }
     ],
     "images": [
-
+      {
+        "src": "http://data.delawareonline.com/webapps/media/suspect_photos/media1_babbbf_192_240_PrsMe_.jpeg.300x400_q85_crop_detail.jpg",
+        "name": "Rahe Walker"
+      }
     ],
     "lng": "-75.540936",
     "lat": "39.758035"
@@ -29285,7 +29338,7 @@
     "time": "1:20 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-28T13:20:00-05:00",
+    "iso8601": "2017-07-28T13:20:00-04:00",
     "summary": "A 23-year-old man was shot dead Friday afternoon in Wilmington's Hedgeville neighborhood. \n\nOfficers responding to the 700 block of S. Van Buren St. in reference to a shooting found a man suffering from a gunshot wound to his upper torso about 1:20 p.m.\n\nThe man was treated by New Castle County Paramedics and taken to the Christiana Hospital where he was pronounced dead.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29319,7 +29372,7 @@
     "time": "9:50 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-30T21:50:00-05:00",
+    "iso8601": "2017-07-30T21:50:00-04:00",
     "summary": "Officers responded to the area of the 2300 block of N. Locust St. after reports of gunfire. There, they found a 29-year-old woman in the area of E. 23rd and Bowers streets. \n\nThe woman was shot wound in her left arm. The victim was treated on scene by New Castle County Paramedics and transported to the Christiana Hospital Emergency Room in stable condition.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29353,7 +29406,7 @@
     "time": "8:25 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-30T20:25:00-05:00",
+    "iso8601": "2017-07-30T20:25:00-04:00",
     "summary": "Police say a 35-year-old man was walking in area of E. 23rd and N. Pine streets when gunfire erupted.\n\nThe victim was shot once in his right hip area.  He was rushed to Christiana Hospital and is listed in stable condition.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29387,7 +29440,7 @@
     "time": "10:45 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-28T22:45:00-05:00",
+    "iso8601": "2017-07-28T22:45:00-04:00",
     "summary": "Police were informed that shots were fire in the 400 Block of N. Washington Street. \n\nOfficer's immediately located a 26-year-old man suffering from gunshot wounds to his abdominal and arm areas. New Castle County Paramedics transported him to the Christiana Hospital Emergency Room in critical condition. \n\nAssisting officers located three additional victims suffering from apparent gunshot graze wounds or injuries from debris associated with the shooting.. The first, a 33-year-old woman, sustained a graze wound to her neck.  A 35-year-old man was found suffering from a graze wound to his upper left arm and a 40-year-old man was found inside suffering from graze wounds to his right arm and right eye.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,
@@ -29445,7 +29498,7 @@
     "time": "1:30 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-28T13:30:00-05:00",
+    "iso8601": "2017-07-28T13:30:00-04:00",
     "summary": "Wilmington police don't yet know where or why, but they say a 16-year-old boy was shot Friday. \n\nAround 1:30 p.m., the teen checked himself into St. Francis Hospital with a gunshot wound on his arm.\n\nThe teen was described as being in \"good condition,\" according to Wilmington police. \n\n(Because police did not know where they shooting scene took place, St. Francis Hospital is being identified as the location).",
     "any_juvenile_victims": true,
     "any_juvenile_suspects": false,
@@ -29479,7 +29532,7 @@
     "time": "11:45 p.m.",
     "year": 2017,
     "year_month": "2017-07",
-    "iso8601": "2017-07-30T23:45:00-05:00",
+    "iso8601": "2017-07-30T23:45:00-04:00",
     "summary": "A 25-year-old man was shot in the back Sunday night in Wilmington' Southbridge neighborhood. \n\nOfficers responding to the 400 block of Townsend St. in regard to Shot Spotter notification found the wounded man in the 400 block of A St. suffering a gunshot wound to his back. The man was treated by New Castle County Paramedics and  taken to Christiana Hospital, where he was reported to be stable.",
     "any_juvenile_victims": false,
     "any_juvenile_suspects": false,

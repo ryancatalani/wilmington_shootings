@@ -22,10 +22,6 @@ index_doc = Nokogiri::HTML(open(index_url))
 last_id = index_doc.css('.incident_list .incident a').first.attr('href').split('/')[3].to_i
 
 
-# first_id = 814
-# last_id = 823
-
-
 ids = (first_id..last_id)
 incidents = []
 errors = []
@@ -166,9 +162,6 @@ s3.bucket(s3_bucket).put_object({
 	key: 'wilm_shootings/assets/data/incidents_new.json'
 })
 
-# File.open('incidents_new.json', 'w') do |f|
-# 	f.puts JSON.pretty_generate(incidents)
-# end
 
 puts "errors on IDs #{errors.join(', ')}" if errors.any?
 puts "wrote file (incidents count: #{incidents.count})"

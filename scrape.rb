@@ -3,9 +3,8 @@ require 'nokogiri'
 require 'json'
 require 'time'
 
-first_id = 814
-last_id = 823
-# last_id = .incident_list .incident a[href] /webapps/crime/:id/:slug
+first_id = 2
+last_id = 827
 
 ids = (first_id..last_id)
 incidents = []
@@ -135,7 +134,8 @@ ids.each do |id|
 	end
 end
 
-File.open('incidents_new.json', 'w') do |f|
+timestamp = Time.now.strftime("%Y%m%d-%H%M")
+File.open("incidents_scraped_#{timestamp}.json", 'w') do |f|
 	f.puts JSON.pretty_generate(incidents)
 end
 puts "errors on IDs #{errors.join(', ')}" if errors.any?
