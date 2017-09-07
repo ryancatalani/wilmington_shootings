@@ -452,16 +452,66 @@ $(function(){
 		}
 
 		var overTimeData = _.mapObject(dateGroups, function(value, key) {
-			var count_all = value.length;
-			var count_juveniles = _.filter(value, function(incident) {
-				return incident.any_juvenile_victims;
-			}).length;
+
+			// console.log(value);
+			var thisYearAllVictims = _.flatten(_.map(value, function(incident){
+				return incident.victims;
+			}));
+
+			var thisYearJuvenileVictims = _.filter(thisYearAllVictims, function(victim) {
+				var age = +victim.age;
+				return age < 17;
+			});
 
 			return {
-				all: count_all,
-				juveniles: count_juveniles
+				all: thisYearAllVictims.length,
+				juveniles: thisYearJuvenileVictims.length
 			}
+
+			// This returns the count of incidents (not victims).
+			// var count_all = value.length;
+			// var count_juveniles = _.filter(value, function(incident) {
+			// 	return incident.any_juvenile_victims;
+			// }).length;
+			// return {
+			// 	all: count_all,
+			// 	juveniles: count_juveniles
+			// }
 		});
+
+		// Manually overriding total counts
+		if (viewAllYears && (onlyJuvenileFilter === undefined || onlyJuvenileFilter === false)) {
+			overTimeData = {
+				2011: {
+					all: 95,
+					juveniles: 6
+				},
+				2012: {
+					all: 118,
+					juveniles: 9
+				},
+				2013: {
+					all: 154,
+					juveniles: 13
+				},
+				2014: {
+					all: 124,
+					juveniles: 12
+				},
+				2015: {
+					all: 151,
+					juveniles: 20
+				},
+				2016: {
+					all: 145,
+					juveniles: 30
+				},
+				2017: {
+					all: 140,
+					juveniles: 13
+				}
+			};
+		}
 
 		if (viewAllYears) {
 			// blank -> all years
@@ -488,7 +538,7 @@ $(function(){
 			last_discontinuous_juvenile.push(last_value);
 
 			var last_disconunuous_juvenile_dataset = {
-				label: 'Gun violence incidents with juvenile victims (ongoing)',
+				label: 'Juvenile victims of gun violence (ongoing)',
 				backgroundColor: 'rgb(116, 23, 132)',
 				borderColor: 'rgb(116, 23, 132)',
 				borderWidth: 2,
@@ -500,7 +550,7 @@ $(function(){
 			chartData.datasets.push(last_disconunuous_juvenile_dataset);
 		}
 		var juvenile_dataset = {
-			label: 'Gun violence incidents with juvenile victims',
+			label: 'Juvenile victims of gun violence',
 			backgroundColor: 'rgb(116, 23, 132)',
 			borderColor: 'rgb(116, 23, 132)',
 			borderWidth: 2,
@@ -513,11 +563,6 @@ $(function(){
 			final_values_all = _.map(overTimeData, function(value, key) { return value.all });
 
 			// MANUAL 2017 VALUE
-			if (viewAllYears) {
-				final_values_all[6] = 140;
-			}
-
-			// MANUAL 2017 VALUE
 			// if (viewAllYears || viewYearOngoing) {
 			if (viewAllYears) {
 				var length = final_values_all.length;
@@ -526,7 +571,7 @@ $(function(){
 				last_discontinuous_all.push(last_value);
 
 				var last_discontinuous_all_dataset = {
-					label: 'All gun violence incidents (ongoing)',
+					label: 'All victims of gun violence (ongoing)',
 					backgroundColor: '#999',
 					borderColor: '#888',
 					borderWidth: 2,
@@ -538,7 +583,7 @@ $(function(){
 				chartData.datasets.push(last_discontinuous_all_dataset);
 			}
 			var all_dataset = {
-				label: 'All gun violence incidents',
+				label: 'All victims of gun violence',
 				backgroundColor: '#999',
 				borderColor: '#888',
 				borderWidth: 2,

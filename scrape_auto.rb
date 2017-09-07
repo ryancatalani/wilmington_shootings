@@ -96,25 +96,47 @@ ids.each do |id|
 		end
 
 		if suspects_p.count >= 3
-			suspects_p.each_slice(3) do |p1, p2, p3|
-				suspect = {}
-				name_age = p1.text.strip.split(',')
-				suspect[:unidentified] = p1.text.downcase.index("unidentified") != nil
-				suspect[:name] = name_age.first.strip
-				if name_age.count > 1
-					suspect[:age] = name_age.last.strip rescue nil
-				else
-					suspect[:age] = nil
-				end
-				suspect[:status] = p2.text.strip # charged date
-				suspect[:arrest_date] = p2.text.strip.split('arrested on').last.strip.chomp('.')
-				suspect[:about] = p3.text.strip # charged with
+			if suspects_p.count % 3 == 0
+				suspects_p.each_slice(3) do |p1, p2, p3|
+					suspect = {}
+					name_age = p1.text.strip.split(',')
+					suspect[:unidentified] = p1.text.downcase.index("unidentified") != nil
+					suspect[:name] = name_age.first.strip
+					if name_age.count > 1
+						suspect[:age] = name_age.last.strip rescue nil
+					else
+						suspect[:age] = nil
+					end
+					suspect[:status] = p2.text.strip # charged date
+					suspect[:arrest_date] = p2.text.strip.split('arrested on').last.strip.chomp('.')
+					suspect[:about] = p3.text.strip # charged with
 
-				if !suspect[:age].nil? && suspect[:age].to_i < 18
-					incident[:any_juvenile_suspects] = true
-				end
+					if !suspect[:age].nil? && suspect[:age].to_i < 18
+						incident[:any_juvenile_suspects] = true
+					end
 
-				suspects << suspect
+					suspects << suspect
+				end
+			else
+				suspects_p.css('strong').each do |p1|
+					suspect = {}
+					name_age = p1.text.strip.split(',')
+					suspect[:unidentified] = p1.text.downcase.index("unidentified") != nil
+					suspect[:name] = name_age.first.strip
+					if name_age.count > 1
+						suspect[:age] = name_age.last.strip rescue nil
+					else
+						suspect[:age] = nil
+					end
+					suspect[:status] = nil
+					suspect[:arrest_date] = nil
+					suspect[:about] = nil
+					if !suspect[:age].nil? && suspect[:age].to_i < 18
+						incident[:any_juvenile_suspects] = true
+					end
+
+					suspects << suspect
+				end
 			end
 		end
 
