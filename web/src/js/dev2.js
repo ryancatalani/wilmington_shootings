@@ -22,12 +22,12 @@ $(function(){
 	function createGraphicMap() {
 		map_dots = createMap('map_dots');
 		
-		var json_url;
-		if (document.location.host.indexOf('localhost') === 0) {
-			json_url = 'assets/data/incidents_new.json';
-		} else {
-			json_url = 'https://rcpublic.s3.amazonaws.com/wilm_shootings/assets/data/incidents_new.json';
-		}
+		// var json_url;
+		// if (document.location.host.indexOf('localhost') === 0) {
+			json_url = 'assets/data/incidents_ending0831.json';
+		// } else {
+			// json_url = 'https://rcpublic.s3.amazonaws.com/wilm_shootings/assets/data/incidents_new.json';
+		// }
 
 		$.when(
 			$.getJSON(json_url, function(data) {
@@ -479,7 +479,9 @@ $(function(){
 		};
 
 		final_values_juvenile = _.map(overTimeData, function(value, key) { return value.juveniles });
-		if (viewAllYears || viewYearOngoing) {
+		// MANUAL 2017 VALUE
+		// if (viewAllYears || viewYearOngoing) {
+		if (viewAllYears) {
 			var length = final_values_juvenile.length;
 			var last_value = final_values_juvenile.pop();
 			var last_discontinuous_juvenile = Array(length-1);
@@ -509,7 +511,15 @@ $(function(){
 
 		if (onlyJuvenileFilter === undefined || onlyJuvenileFilter === false) {
 			final_values_all = _.map(overTimeData, function(value, key) { return value.all });
-			if (viewAllYears || viewYearOngoing) {
+
+			// MANUAL 2017 VALUE
+			if (viewAllYears) {
+				final_values_all[6] = 140;
+			}
+
+			// MANUAL 2017 VALUE
+			// if (viewAllYears || viewYearOngoing) {
+			if (viewAllYears) {
 				var length = final_values_all.length;
 				var last_value = final_values_all.pop();
 				var last_discontinuous_all = Array(length-1);
