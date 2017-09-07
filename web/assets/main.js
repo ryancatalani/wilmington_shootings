@@ -1131,7 +1131,7 @@ $(function(){
 			last_discontinuous_juvenile.push(last_value);
 
 			var last_disconunuous_juvenile_dataset = {
-				label: 'Juvenile victims of gun violence (ongoing)',
+				label: 'Juvenile shooting victims (ongoing)',
 				backgroundColor: 'rgb(116, 23, 132)',
 				borderColor: 'rgb(116, 23, 132)',
 				borderWidth: 2,
@@ -1143,7 +1143,7 @@ $(function(){
 			chartData.datasets.push(last_disconunuous_juvenile_dataset);
 		}
 		var juvenile_dataset = {
-			label: 'Juvenile victims of gun violence',
+			label: 'Juvenile shooting victims',
 			backgroundColor: 'rgb(116, 23, 132)',
 			borderColor: 'rgb(116, 23, 132)',
 			borderWidth: 2,
@@ -1164,7 +1164,7 @@ $(function(){
 				last_discontinuous_all.push(last_value);
 
 				var last_discontinuous_all_dataset = {
-					label: 'All victims of gun violence (ongoing)',
+					label: 'All shooting victims (ongoing)',
 					backgroundColor: '#999',
 					borderColor: '#888',
 					borderWidth: 2,
@@ -1176,7 +1176,7 @@ $(function(){
 				chartData.datasets.push(last_discontinuous_all_dataset);
 			}
 			var all_dataset = {
-				label: 'All victims of gun violence',
+				label: 'All shooting victims',
 				backgroundColor: '#999',
 				borderColor: '#888',
 				borderWidth: 2,
