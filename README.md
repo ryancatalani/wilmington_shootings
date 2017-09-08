@@ -1,10 +1,14 @@
 # Wilmington Shootings
 
-View the production versions at:
+Read the story: “[Wilmington: most dangerous place in America for youth](http://www.delawareonline.com/story/news/crime/2017/09/08/our-babies-killing-each-other/100135370/)” (Sept. 2017)
+
+Data via the News Journal, USA Today, and the Associated Press.
+
+Code and graphics © Ryan Catalani 2017. View the production versions at:
 - [All three graphics](https://rcpublic.s3.amazonaws.com/wilm_shootings/index.html "All three graphics")
 - [“Explore gun violence in Wilmington” (map)](https://rcpublic.s3.amazonaws.com/wilm_shootings/graphic_map.html)
 - [“Teens injured or killed by gun violence annually”](https://rcpublic.s3.amazonaws.com/wilm_shootings/graphic_cities.html)
-- [Juveniles charged with gang participation](https://rcpublic.s3.amazonaws.com/wilm_shootings/graphic_juveniles.html)
+- [”Juveniles charged with gang participation”](https://rcpublic.s3.amazonaws.com/wilm_shootings/graphic_juveniles.html)
 
 ## Backend
 
